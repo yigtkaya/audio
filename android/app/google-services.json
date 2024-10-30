@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537468152469",
+    "project_id": "audioecommerce",
+    "storage_bucket": "audioecommerce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537468152469:android:af1c9986a06167b79e099c",
+        "android_client_info": {
+          "package_name": "com.example.audio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_v1oeNpy-L2Fk8W19DGbRZCcs9-Jp7d4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
