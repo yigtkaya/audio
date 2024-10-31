@@ -98,6 +98,18 @@ abstract class AppLocalizations {
     Locale('tr')
   ];
 
+  /// No description provided for @audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio'**
+  String get audio;
+
+  /// No description provided for @headerTextDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s modular and designed to last'**
+  String get headerTextDescription;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:

@@ -7,6 +7,12 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get audio => 'Audio';
+
+  @override
+  String get headerTextDescription => 'Modüler ve dayanıklıdır';
+
+  @override
   String get login => 'Giriş Yap';
 
   @override

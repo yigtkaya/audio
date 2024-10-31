@@ -21,5 +21,9 @@ class AppDesignConstants {
   static double verticalPaddingMedium = 12.h;
   static double verticalPaddingSmall = 6.h;
 
+  static double spacingLarge = 24;
+  static double spacingMedium = 16;
+  static double spacing = 8;
+
   static EdgeInsets paddingOfCustomHeader = EdgeInsets.fromLTRB(20.w, 85.h, 20.w, 5.h);
 }

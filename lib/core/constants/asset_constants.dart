@@ -46,6 +46,5 @@ final class AssetIcons {
 
 @immutable
 final class AssetImages {
-  final String cuteCatExample = AssetConstants.toPng("cute_cat_example");
-  final String studentCard = AssetConstants.toPng("student_card");
+  final String authBackground = AssetConstants.toPng("auth_background_image");
 }

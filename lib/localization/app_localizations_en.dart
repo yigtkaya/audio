@@ -7,6 +7,12 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get audio => 'Audio';
+
+  @override
+  String get headerTextDescription => 'It\'s modular and designed to last';
+
+  @override
   String get login => 'Login';
 
   @override

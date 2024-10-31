@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-@singleton
-@immutable
+// @singleton
+// @immutable
 final class DioManager {
   final String baseUrl;
   late final Dio _dio;
