@@ -81,7 +81,9 @@ class SignUpView extends StatelessWidget {
                 FooterText(
                   text: context.l10n.aldreadyHaveAnAccount,
                   buttonText: context.l10n.logIn,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.back();
+                  },
                 ),
                 SizedBox(height: 40.h),
               ],

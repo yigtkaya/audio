@@ -36,6 +36,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: AppColors.kGreyDark,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -48,6 +49,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(
             color: AppColors.kGreyDark,
+            width: 1.w,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: AppColors.kPrimary50,
             width: 1.w,
           ),
         ),

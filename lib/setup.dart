@@ -10,6 +10,10 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
 
     configureDependencies();
 
+    HydratedBloc.storage = await HydratedStorage.build(
+      storageDirectory: kIsWeb ? HydratedStorage.webStorageDirectory : await getTemporaryDirectory(),
+    );
+
     /// Initialize the app database
 
     Bloc.observer = const AppBlocObserver();
