@@ -1,35 +1,28 @@
-part of '../sign_up_view.dart';
+part of '../forgot_password_view.dart';
 
-mixin SignUpViewMixin on State<SignUpView> {
-  final formKey = GlobalKey<FormState>();
+mixin ForgotPasswordMixin on State<ForgotPasswordView> {
   final emailController = TextEditingController();
-  final passwordController = TextEditingController();
 
   @override
   void dispose() {
     emailController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 
-  void onLoginRoute() {
-    context.router.back();
-  }
-
-  Future<void> signUp() async {
+  void onBackPressed() => context.router.back();
+  Future<void> resetPassword() async {
     final completer = Completer<void>();
 
     // Listen for authentication success or failure to complete the Future.
     final subscription = context.read<AuthBloc>().stream.listen((state) {
-      if (state is Authenticated || state is AuthError) {
+      if (state is AuthSucces || state is AuthError) {
         completer.complete();
       }
     });
 
     context.read<AuthBloc>().add(
-          SignUpRequested(
+          ResetPasswordRequested(
             email: emailController.text,
-            password: passwordController.text,
           ),
         );
 
@@ -37,14 +30,14 @@ mixin SignUpViewMixin on State<SignUpView> {
     await completer.future.whenComplete(() => subscription.cancel());
   }
 
-  void onSignUpPressed() {
-    if (!formKey.currentState!.validate()) {
+  void onResetPressed() {
+    if (emailController.text.isEmpty) {
       return;
     }
 
     CustomLoadingDialog.show(
       context: context,
-      future: signUp(),
+      future: resetPassword(),
     );
   }
 }

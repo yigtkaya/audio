@@ -31,7 +31,7 @@ final class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
     }
   }
 
-  void _onSignInRequested(SignInRequested event, Emitter<AuthState> emit) async {
+  Future<void> _onSignInRequested(SignInRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     final result = await _authRepository.signInWithEmail(
       email: event.email,
@@ -44,7 +44,7 @@ final class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
     );
   }
 
-  void _onSignUpRequested(SignUpRequested event, Emitter<AuthState> emit) async {
+  Future<void> _onSignUpRequested(SignUpRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     final result = await _authRepository.signUpWithEmail(
       email: event.email,
@@ -57,17 +57,26 @@ final class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
     );
   }
 
-  void _onSignOutRequested(SignOutRequested event, Emitter<AuthState> emit) async {
+  Future<void> _onSignOutRequested(SignOutRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     await _authRepository.signOut();
     emit(Unauthenticated());
   }
 
-  void _onResetPasswordRequested(ResetPasswordRequested event, Emitter<AuthState> emit) async {
-    await _authRepository.resetPassword(event.email);
+  Future<void> _onResetPasswordRequested(ResetPasswordRequested event, Emitter<AuthState> emit) async {
+    try {
+      await _authRepository.resetPassword(event.email);
+      emit(AuthSucces());
+    } catch (e) {
+      emit(
+        AuthError(
+          message: e.toString(),
+        ),
+      );
+    }
   }
 
-  void _onSignInWithGoogleRequested(SignInWithGoogleRequested event, Emitter<AuthState> emit) async {
+  Future<void> _onSignInWithGoogleRequested(SignInWithGoogleRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     final result = await _authRepository.signUpWithGoogle();
 

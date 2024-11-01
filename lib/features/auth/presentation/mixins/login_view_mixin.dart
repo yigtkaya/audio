@@ -1,17 +1,32 @@
-import 'package:audio/features/auth/bloc/auth_bloc.dart';
-import 'package:audio/features/auth/presentation/login_view.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+part of '../login_view.dart';
 
 mixin LoginViewMixin on State<LoginView> {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void onLoginPressed() {
-    if (!formKey.currentState!.validate()) {
-      return;
-    }
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void onSignUpRoute() {
+    context.router.push(const SignUpRoute());
+  }
+
+  void onForgotPasswordRoute() => context.router.push(ForgotPasswordRoute());
+
+  Future<void> login() async {
+    final completer = Completer<void>();
+
+    // Listen for authentication success or failure to complete the Future.
+    final subscription = context.read<AuthBloc>().stream.listen((state) {
+      if (state is Authenticated || state is AuthError) {
+        completer.complete();
+      }
+    });
 
     context.read<AuthBloc>().add(
           SignInRequested(
@@ -19,5 +34,19 @@ mixin LoginViewMixin on State<LoginView> {
             password: passwordController.text,
           ),
         );
+
+    // Complete the future if there's an error.
+    await completer.future.whenComplete(() => subscription.cancel());
+  }
+
+  void onLoginPressed() {
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
+
+    CustomLoadingDialog.show(
+      context: context,
+      future: login(),
+    );
   }
 }

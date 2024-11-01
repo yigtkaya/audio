@@ -3,37 +3,48 @@ import 'dart:async';
 import 'package:audio/core/constants/app_colors.dart';
 import 'package:audio/core/constants/app_design_constant.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
-import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/auth/bloc/auth_bloc.dart';
-import 'package:audio/features/auth/presentation/widgets/auth_form.dart';
 import 'package:audio/shared/widgets/loading/custom_loading_dialog.dart';
 import 'package:audio/shared/widgets/toast/custom_toast.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:audio/features/auth/presentation/widgets/footer_text.dart';
 import 'package:audio/features/auth/presentation/widgets/header_text.dart';
 import 'package:audio/localization/l10.dart';
 import 'package:audio/shared/widgets/buttons/custom_elevated_button.dart';
+import 'package:audio/shared/widgets/text_fields/custom_email_text_form_field.dart';
 import 'package:audio/core/constants/asset_constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-part './mixins/login_view_mixin.dart';
-part './widgets/forgot_password_button.dart';
+part './mixins/forgot_password_mixin.dart';
 
 @RoutePage()
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class ForgotPasswordView extends StatefulWidget {
+  const ForgotPasswordView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<ForgotPasswordView> createState() => _ForgotPasswordViewState();
 }
 
-class _LoginViewState extends State<LoginView> with LoginViewMixin {
+class _ForgotPasswordViewState extends State<ForgotPasswordView> with ForgotPasswordMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: onBackPressed,
+          icon: Icon(
+            Icons.chevron_left,
+            color: AppColors.kWhite,
+            size: 32.r,
+          ),
+        ),
+      ),
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(
@@ -54,36 +65,27 @@ class _LoginViewState extends State<LoginView> with LoginViewMixin {
               children: [
                 SizedBox(height: 40.h),
                 const HeaderText(),
-                const SizedBox(height: 220),
-                AuthForm(
-                  formKey: formKey,
-                  emailController: emailController,
-                  passwordController: passwordController,
+                const SizedBox(height: 220), // Remove Spacer for better scrolling
+                CustomEmailTextFormField(
+                  controller: emailController,
                 ),
-                const SizedBox(height: 12),
-                _ForgotPasswordButton(
-                  onForgotPasswordRoute,
-                ),
-                SizedBox(height: AppDesignConstants.spacingMedium),
+                const SizedBox(height: 60),
                 BlocConsumer<AuthBloc, AuthState>(
                   builder: (context, state) {
                     return CustomRoundedButton(
                       width: double.infinity,
                       height: 50.h,
                       bgColor: AppColors.kPrimary,
-                      text: context.l10n.logIn,
+                      text: context.l10n.send,
                       textStyle: context.textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
-                      onTap: onLoginPressed,
+                      onTap: onResetPressed,
                     );
                   },
                   listener: (context, state) {
-                    if (state is Authenticated) {
-                      context.router.replace(HomeRoute());
-                    }
                     if (state is AuthError) {
                       CustomToastMessage.showCustomToast(
                         context,
@@ -93,13 +95,6 @@ class _LoginViewState extends State<LoginView> with LoginViewMixin {
                     }
                   },
                 ),
-                const SizedBox(height: 24),
-                FooterText(
-                  text: context.l10n.dontHaveAnAccount,
-                  buttonText: context.l10n.signUp,
-                  onPressed: onSignUpRoute,
-                ),
-                const SizedBox(height: 40),
               ],
             ),
           ),

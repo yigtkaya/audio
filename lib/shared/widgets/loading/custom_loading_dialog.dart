@@ -18,6 +18,7 @@ final class CustomLoadingDialog extends StatelessWidget {
   }) async {
     unawaited(
       showDialog(
+        barrierDismissible: false,
         context: context,
         builder: (context) => const CustomLoadingDialog(),
       ),
@@ -31,12 +32,13 @@ final class CustomLoadingDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Dialog(
+    return Dialog(
       backgroundColor: Colors.transparent,
-      child: CircularProgressIndicator.adaptive(
-        backgroundColor: Colors.white,
-        valueColor: AlwaysStoppedAnimation(
-          AppColors.kWhite,
+      child: Center(
+        child: const CircularProgressIndicator.adaptive(
+          valueColor: AlwaysStoppedAnimation(
+            AppColors.kWhite,
+          ),
         ),
       ),
     );

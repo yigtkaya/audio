@@ -1,14 +1,13 @@
 part of '../login_view.dart';
 
 final class _ForgotPasswordButton extends StatelessWidget {
-  const _ForgotPasswordButton();
+  final Function onPressed;
+  const _ForgotPasswordButton(this.onPressed);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        // context.router.push(const ForgotPasswordRoute());
-      },
+      onPressed: () => onPressed(),
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
       ),
