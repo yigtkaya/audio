@@ -2,7 +2,7 @@ import 'package:audio/core/loggers/logger.dart';
 
 void networkLog({required String repository, required dynamic message, dynamic error, StackTrace? stackTrace}) {
   loggerNoMethod.e("REPOSITORY: $repository");
-  logger.e(message, error, stackTrace);
+  logger.e(message);
 }
 
 void dioLog(dynamic message) {
@@ -21,7 +21,7 @@ void dioDataLog(dynamic message) {
 
 void appExceptionLog(dynamic message, dynamic error, StackTrace? stackTrace) {
   logger.e("APP EXCEPTION:");
-  logger.e(message, error, stackTrace);
+  logger.e(message);
 }
 
 void dataLog(dynamic message) {
@@ -29,5 +29,5 @@ void dataLog(dynamic message) {
 }
 
 void navigationLog(dynamic message) {
-  loggerData.v(message);
+  loggerData.t(message);
 }

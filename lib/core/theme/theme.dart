@@ -1,93 +1,74 @@
 import 'package:flutter/material.dart';
 import 'package:audio/core/constants/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ThemeController {
-  ThemeController() {
-    _init();
-  }
+@immutable
+final class LightTheme {
+  const LightTheme._();
 
   static const fontFamily = 'Inter';
 
-  /// Colors
-  final Color _kPrimaryColor = const Color(0xFFE7F0DF);
+  static final theme = ThemeData(
+    primaryColor: AppColors.kPrimary,
+    appBarTheme: AppBarTheme(
+      color: AppColors.kWhite,
+    ),
+    scaffoldBackgroundColor: AppColors.kBackground,
+    textTheme: TextTheme(
+      titleLarge: _titleLarge,
+      titleMedium: _titleMedium,
+      titleSmall: _titleSmall,
+      bodyLarge: _bodyLarge,
+      bodyMedium: _bodyMedium,
+      bodySmall: _bodySmall,
+    ),
+    fontFamily: fontFamily,
+  );
 
-  /// ThemeData
-  late ThemeData _themeData;
-
-  ThemeData get themeData => _themeData;
-
-  /// ThemeMode
-  ThemeMode themeMode = ThemeMode.light;
-
-  void changeThemeMode(ThemeMode themeMode) {
-    this.themeMode = themeMode;
-    // Add any additional logic if needed when theme mode changes
-  }
-
-  final _kAppBarTheme = const AppBarTheme(backgroundColor: AppColors.kBackground);
-
-  void _init() {
-    _themeData = ThemeData(
-      primaryColor: _kPrimaryColor,
-      appBarTheme: _kAppBarTheme,
-      scaffoldBackgroundColor: AppColors.kBackground,
-      textTheme: TextTheme(
-        titleLarge: _titleLarge,
-        titleMedium: _titleMedium,
-        titleSmall: _titleSmall,
-        bodyLarge: _bodyLarge,
-        bodyMedium: _bodyMedium,
-        bodySmall: _bodySmall,
-      ),
-      // ignore: deprecated_member_use
-    );
-    // Initialize other properties if needed
-  }
-
-  static TextStyle get _titleLarge => const TextStyle(
-        fontSize: 28,
+  static TextStyle get _titleLarge => TextStyle(
+        fontSize: 28.sp,
         fontWeight: FontWeight.bold,
         color: Colors.black,
         fontFamily: fontFamily,
       );
 
-  static TextStyle get _titleMedium => const TextStyle(
-        fontSize: 24,
+  static TextStyle get _titleMedium => TextStyle(
+        fontSize: 24.sp,
         fontWeight: FontWeight.bold,
         color: Colors.black,
         fontFamily: fontFamily,
       );
 
-  static TextStyle get _titleSmall => const TextStyle(
-        fontSize: 20,
+  static TextStyle get _titleSmall => TextStyle(
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold,
         color: Colors.black,
         fontFamily: fontFamily,
       );
 
-  static TextStyle get _bodyLarge => const TextStyle(
-        fontSize: 16,
+  static TextStyle get _bodyLarge => TextStyle(
+        fontSize: 16.sp,
         fontWeight: FontWeight.w700,
         color: Colors.black,
         fontFamily: fontFamily,
       );
 
-  static TextStyle get _bodyMedium => const TextStyle(
-        fontSize: 14,
+  static TextStyle get _bodyMedium => TextStyle(
+        fontSize: 14.sp,
         fontWeight: FontWeight.normal,
         color: Colors.black,
         fontFamily: fontFamily,
       );
 
-  static TextStyle get _bodySmall => const TextStyle(
-        fontSize: 12,
+  static TextStyle get _bodySmall => TextStyle(
+        fontSize: 12.sp,
         fontWeight: FontWeight.normal,
         color: Colors.black,
         fontFamily: fontFamily,
       );
 
   static TextStyle kErrorStyle({Color? color}) => TextStyle(
-        fontSize: 12,
+        fontSize: 12.sp,
         fontWeight: FontWeight.w500,
         color: color,
         height: 1.4,

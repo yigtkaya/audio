@@ -70,9 +70,9 @@ dependencies:
   fluttertoast: ^8.2.8
   flutter_screenutil: ^5.9.3
   lucide_icons_flutter: ^1.2.3
-  flutter_svg: ^2.0.10+1
+  flutter_svg: ^2.0.11
   dart_mappable: ^4.3.0
-  logger_plus: ^0.0.6+4
+  logger: ^2.4.0
   flutter_keyboard_visibility: ^6.0.0
   either_dart: ^1.0.0 
   path_provider: ^2.1.5
@@ -93,7 +93,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

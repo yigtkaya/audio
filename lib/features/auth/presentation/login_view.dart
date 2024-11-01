@@ -21,11 +21,13 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Container(
+        height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AssetConstants.images.authBackground),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
             colorFilter: ColorFilter.mode(
               Colors.green.shade900.withOpacity(0.85),
               BlendMode.multiply,
@@ -33,14 +35,14 @@ class LoginView extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: Padding(
+          child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: AppDesignConstants.horizontalPaddingLarge),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 40.h),
                 const HeaderText(),
-                const Spacer(),
+                const SizedBox(height: 220), // Remove Spacer for better scrolling
                 CustomTextField(
                   hintText: context.l10n.email,
                   prefixIcon: const Icon(

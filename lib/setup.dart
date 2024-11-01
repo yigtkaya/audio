@@ -14,14 +14,22 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
       storageDirectory: kIsWeb ? HydratedStorage.webStorageDirectory : await getTemporaryDirectory(),
     );
 
-    /// Initialize the app database
-
     Bloc.observer = const AppBlocObserver();
 
-    runApp(await builder());
+    runApp(
+      await builder(),
+    );
   }, (error, stack) {
-    log(error.toString(), stackTrace: stack, name: 'setup');
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: false);
+    log(
+      error.toString(),
+      stackTrace: stack,
+      name: AppConstants.initFunctionName,
+    );
+    FirebaseCrashlytics.instance.recordError(
+      error,
+      stack,
+      fatal: false,
+    );
   });
 
   /// Log all errors to the console

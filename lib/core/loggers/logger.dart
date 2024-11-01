@@ -1,4 +1,4 @@
-import 'package:logger_plus/logger_plus.dart';
+import 'package:logger/logger.dart';
 
 class MyFilter extends LogFilter {
   @override

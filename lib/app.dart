@@ -4,17 +4,17 @@ import 'package:audio/core/router/app_router.dart';
 import 'package:audio/core/theme/theme.dart';
 import 'package:audio/localization/app_localizations.dart';
 import 'package:audio/localization/helper/bloc/language_bloc.dart';
+import 'package:audio/product/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class App extends StatelessWidget {
+final class App extends StatelessWidget {
   App({super.key});
 
   final _appRouter = AppRouter();
-  final ThemeController themeController = ThemeController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class App extends StatelessWidget {
           splitScreenMode: false,
           child: KeyboardDismissOnTap(
             child: MaterialApp.router(
-              title: 'Audio E-Commerce',
-              theme: themeController.themeData,
+              title: AppConstants.appName,
+              theme: LightTheme.theme,
               localizationsDelegates: const [
-                AppLocalizations.delegate, // Add this line
+                AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
