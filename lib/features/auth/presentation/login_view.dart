@@ -2,11 +2,13 @@ import 'package:audio/core/constants/app_colors.dart';
 import 'package:audio/core/constants/app_design_constant.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/router/app_router.gr.dart';
+import 'package:audio/features/auth/presentation/mixins/login_view_mixin.dart';
 import 'package:audio/features/auth/presentation/widgets/footer_text.dart';
 import 'package:audio/features/auth/presentation/widgets/header_text.dart';
 import 'package:audio/localization/l10.dart';
 import 'package:audio/shared/widgets/buttons/custom_elevated_button.dart';
-import 'package:audio/shared/widgets/text_fields/custom_text_field.dart';
+import 'package:audio/shared/widgets/text_fields/custom_email_text_form_field.dart';
+import 'package:audio/shared/widgets/text_fields/custom_password_text_form_field.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:audio/core/constants/asset_constants.dart';
@@ -15,9 +17,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 part './widgets/forgot_password_button.dart';
 
 @RoutePage()
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> with LoginViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,25 +50,25 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: 40.h),
                 const HeaderText(),
                 const SizedBox(height: 220), // Remove Spacer for better scrolling
-                CustomTextField(
-                  hintText: context.l10n.email,
-                  prefixIcon: const Icon(
-                    Icons.email_outlined,
-                    color: AppColors.kGreyDark,
-                  ),
-                ),
-                SizedBox(height: AppDesignConstants.spacingMedium),
-                CustomTextField(
-                  hintText: context.l10n.password,
-                  prefixIcon: const Icon(
-                    Icons.lock_outline,
-                    color: AppColors.kGreyDark,
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      CustomEmailTextFormField(
+                        controller: emailController,
+                      ),
+                      SizedBox(
+                        height: AppDesignConstants.spacingMedium,
+                      ),
+                      CustomPasswordTextFormField(
+                        controller: passwordController,
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 12),
                 const _ForgotPasswordButton(),
                 SizedBox(height: AppDesignConstants.spacingMedium),
-                // Sign In Button
                 CustomRoundedButton(
                   width: double.infinity,
                   height: 50.h,
@@ -72,7 +79,7 @@ class LoginView extends StatelessWidget {
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
-                  onTap: () {},
+                  onTap: onLoginPressed,
                 ),
                 const SizedBox(height: 24),
                 FooterText(

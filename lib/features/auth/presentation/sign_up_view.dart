@@ -2,25 +2,33 @@ import 'package:audio/core/constants/app_colors.dart';
 import 'package:audio/core/constants/app_design_constant.dart';
 import 'package:audio/core/constants/asset_constants.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
+import 'package:audio/features/auth/presentation/mixins/sign_up_view_mixin.dart';
 import 'package:audio/features/auth/presentation/widgets/footer_text.dart';
 import 'package:audio/features/auth/presentation/widgets/header_text.dart';
 import 'package:audio/features/auth/presentation/widgets/social_login_button.dart';
 import 'package:audio/localization/l10.dart';
 import 'package:audio/shared/widgets/buttons/custom_elevated_button.dart';
-import 'package:audio/shared/widgets/text_fields/custom_text_field.dart';
+import 'package:audio/shared/widgets/text_fields/custom_email_text_form_field.dart';
+import 'package:audio/shared/widgets/text_fields/custom_password_text_form_field.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
 
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> with SignUpViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
+        height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AssetConstants.images.authBackground),
@@ -40,25 +48,26 @@ class SignUpView extends StatelessWidget {
                 SizedBox(height: 40.h),
                 // Header text
                 const HeaderText(),
-                const Spacer(),
                 // Email TextField
-                CustomTextField(
-                  hintText: context.l10n.email,
-                  prefixIcon: const Icon(
-                    Icons.email_outlined,
-                    color: AppColors.kGreyDark,
-                  ),
-                ),
-                SizedBox(height: AppDesignConstants.spacingMedium),
-                CustomTextField(
-                  hintText: context.l10n.password,
-                  prefixIcon: const Icon(
-                    Icons.lock_outline,
-                    color: AppColors.kGreyDark,
+                SizedBox(height: 220.h),
+
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      CustomEmailTextFormField(
+                        controller: emailController,
+                      ),
+                      SizedBox(
+                        height: AppDesignConstants.spacingMedium,
+                      ),
+                      CustomPasswordTextFormField(
+                        controller: passwordController,
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: AppDesignConstants.spacingLarge),
-                // Sign Up Button
                 CustomRoundedButton(
                   width: double.infinity,
                   height: 50.h,
@@ -69,7 +78,7 @@ class SignUpView extends StatelessWidget {
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
-                  onTap: () {},
+                  onTap: onSignUpPressed,
                 ),
                 SizedBox(height: AppDesignConstants.spacingLarge),
                 // Social Login Options

@@ -1,26 +1,22 @@
 import 'package:audio/core/constants/app_colors.dart';
+import 'package:audio/core/constants/app_constants.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
+import 'package:audio/localization/l10.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-final class CustomTextField extends StatefulWidget {
-  final String hintText;
-  final Widget prefixIcon;
+final class CustomEmailTextFormField extends StatefulWidget {
   final TextEditingController controller;
-  final FormFieldValidator<String>? validator;
-  const CustomTextField({
+  const CustomEmailTextFormField({
     super.key,
-    required this.hintText,
-    required this.prefixIcon,
     required this.controller,
-    required this.validator,
   });
 
   @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
+  State<CustomEmailTextFormField> createState() => _CustomEmailTextFormFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class _CustomEmailTextFormFieldState extends State<CustomEmailTextFormField> {
   late FocusNode myFocusNode;
   bool focused = false;
   bool isEmpty = true;
@@ -42,16 +38,26 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       controller: widget.controller,
       cursorColor: AppColors.kGreyDark,
-      validator: widget.validator,
+      validator: (value) {
+        if (value!.toString().isEmpty) {
+          return context.l10n.pleaseEnterEmail;
+        } else if (!RegExp(AppConstants.emailRegex).hasMatch(value)) {
+          return context.l10n.pleaseEnterValidEmail;
+        }
+        return null;
+      },
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
-        hintText: widget.hintText,
+        hintText: context.l10n.email,
         hintStyle: context.textTheme.bodyLarge!.copyWith(
           color: AppColors.kGreyDark,
         ),
-        prefixIcon: widget.prefixIcon,
+        prefixIcon: const Icon(
+          Icons.email_outlined,
+          color: AppColors.kGreyDark,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(

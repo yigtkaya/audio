@@ -1,7 +1,9 @@
+import 'package:audio/core/constants/app_colors.dart';
 import 'package:audio/core/constants/asset_constants.dart';
 import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/auth/bloc/auth_bloc.dart';
 import 'package:audio/shared/widgets/loading/custom_loading_dialog.dart';
+import 'package:audio/shared/widgets/toast/custom_toast.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,6 +47,13 @@ class _SplashViewState extends State<SplashView> {
             if (state is Unauthenticated) {
               context.router.replace(
                 const LoginRoute(),
+              );
+            }
+            if (state is AuthError) {
+              CustomToastMessage.showCustomToast(
+                context,
+                state.message,
+                AppColors.kDanger400,
               );
             }
           },
