@@ -4,6 +4,7 @@ mixin SignUpViewMixin on State<SignUpView> {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final nameController = TextEditingController();
 
   @override
   void dispose() {
@@ -30,6 +31,7 @@ mixin SignUpViewMixin on State<SignUpView> {
           SignUpRequested(
             email: emailController.text,
             password: passwordController.text,
+            name: nameController.text,
           ),
         );
 

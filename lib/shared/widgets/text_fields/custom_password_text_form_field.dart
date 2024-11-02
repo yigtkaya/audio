@@ -45,6 +45,7 @@ class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormFiel
         }
         return null;
       },
+      style: context.textTheme.bodyMedium,
       obscureText: true,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(

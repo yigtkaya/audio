@@ -56,6 +56,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get thisFieldIsRequired => 'This field is required';
 
   @override
+  String get welcomeText => 'What are you looking for today?';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get searchHeadphone => 'Search Headphone';
+
+  @override
   String get trips => 'Trips';
 
   @override

@@ -5,8 +5,9 @@ import 'package:audio/core/constants/app_design_constant.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/auth/bloc/auth_bloc.dart';
-import 'package:audio/features/auth/presentation/widgets/auth_form.dart';
 import 'package:audio/shared/widgets/loading/custom_loading_dialog.dart';
+import 'package:audio/shared/widgets/text_fields/custom_email_text_form_field.dart';
+import 'package:audio/shared/widgets/text_fields/custom_password_text_form_field.dart';
 import 'package:audio/shared/widgets/toast/custom_toast.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ part './mixins/login_view_mixin.dart';
 part './widgets/forgot_password_button.dart';
 
 @RoutePage()
-class LoginView extends StatefulWidget {
+final class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
   @override
@@ -55,10 +56,21 @@ class _LoginViewState extends State<LoginView> with LoginViewMixin {
                 SizedBox(height: 40.h),
                 const HeaderText(),
                 const SizedBox(height: 220),
-                AuthForm(
-                  formKey: formKey,
-                  emailController: emailController,
-                  passwordController: passwordController,
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      CustomEmailTextFormField(
+                        controller: emailController,
+                      ),
+                      SizedBox(
+                        height: AppDesignConstants.spacingMedium,
+                      ),
+                      CustomPasswordTextFormField(
+                        controller: passwordController,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 12),
                 _ForgotPasswordButton(
@@ -82,7 +94,8 @@ class _LoginViewState extends State<LoginView> with LoginViewMixin {
                   },
                   listener: (context, state) {
                     if (state is Authenticated) {
-                      context.router.replace(HomeRoute());
+                      context.router.replaceAll([HomeRoute()]);
+                      return;
                     }
                     if (state is AuthError) {
                       CustomToastMessage.showCustomToast(

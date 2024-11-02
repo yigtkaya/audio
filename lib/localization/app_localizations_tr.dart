@@ -56,6 +56,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get thisFieldIsRequired => 'Bu alan zorunludur';
 
   @override
+  String get welcomeText => 'Bu gün ne almayı düşünüyorsunuz?';
+
+  @override
+  String get welcome => 'Hoşgeldiniz';
+
+  @override
+  String get searchHeadphone => 'Kulaklık Arayın';
+
+  @override
   String get trips => 'İlanlar';
 
   @override

@@ -194,6 +194,24 @@ abstract class AppLocalizations {
   /// **'This field is required'**
   String get thisFieldIsRequired;
 
+  /// No description provided for @welcomeText.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you looking for today?'**
+  String get welcomeText;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @searchHeadphone.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Headphone'**
+  String get searchHeadphone;
+
   /// No description provided for @trips.
   ///
   /// In en, this message translates to:

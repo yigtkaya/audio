@@ -4,9 +4,11 @@ import 'package:audio/core/constants/asset_constants.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/auth/bloc/auth_bloc.dart';
-import 'package:audio/features/auth/presentation/widgets/auth_form.dart';
 import 'dart:async';
 import 'package:audio/shared/widgets/loading/custom_loading_dialog.dart';
+import 'package:audio/shared/widgets/text_fields/custom_email_text_form_field.dart';
+import 'package:audio/shared/widgets/text_fields/custom_form_field.dart';
+import 'package:audio/shared/widgets/text_fields/custom_password_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:audio/features/auth/presentation/widgets/footer_text.dart';
@@ -32,7 +34,7 @@ class _SignUpViewState extends State<SignUpView> with SignUpViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(
@@ -54,10 +56,29 @@ class _SignUpViewState extends State<SignUpView> with SignUpViewMixin {
                 SizedBox(height: 40.h),
                 const HeaderText(),
                 SizedBox(height: 220.h),
-                AuthForm(
-                  formKey: formKey,
-                  emailController: emailController,
-                  passwordController: passwordController,
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      CustomTextField(
+                        controller: nameController,
+                        hintText: context.l10n.name,
+                        validator: (value) => value?.isNotEmpty == true ? null : context.l10n.thisFieldIsRequired,
+                      ),
+                      SizedBox(
+                        height: AppDesignConstants.spacingMedium,
+                      ),
+                      CustomEmailTextFormField(
+                        controller: emailController,
+                      ),
+                      SizedBox(
+                        height: AppDesignConstants.spacingMedium,
+                      ),
+                      CustomPasswordTextFormField(
+                        controller: passwordController,
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: AppDesignConstants.spacingLarge),
                 BlocConsumer<AuthBloc, AuthState>(
@@ -86,7 +107,8 @@ class _SignUpViewState extends State<SignUpView> with SignUpViewMixin {
                   },
                   listener: (context, state) {
                     if (state is Authenticated) {
-                      context.router.replace(HomeRoute());
+                      context.router.replaceAll([HomeRoute()]);
+                      return;
                     }
                     if (state is AuthError) {
                       CustomToastMessage.showCustomToast(

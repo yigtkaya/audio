@@ -25,76 +25,66 @@ final class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
   void _onCheckAuthentication(CheckAuthentication event, Emitter<AuthState> emit) async {
     final user = _authRepository.currentUser();
     if (user != null) {
-      emit(Authenticated(user: user));
+      safeEmit(Authenticated(user: user), emit);
     } else {
-      emit(Unauthenticated());
+      safeEmit(Unauthenticated(), emit);
     }
   }
 
   Future<void> _onSignInRequested(SignInRequested event, Emitter<AuthState> emit) async {
-    emit(AuthLoading());
+    safeEmit(AuthLoading(), emit);
     final result = await _authRepository.signInWithEmail(
       email: event.email,
       password: event.password,
     );
 
     result.fold(
-      (failure) => emit(AuthError(message: failure.message)),
-      (userCredential) => emit(Authenticated(user: userCredential.user!)),
+      (failure) => safeEmit(AuthError(message: failure.message), emit),
+      (userCredential) => safeEmit(Authenticated(user: userCredential.user!), emit),
     );
   }
 
   Future<void> _onSignUpRequested(SignUpRequested event, Emitter<AuthState> emit) async {
-    emit(AuthLoading());
+    safeEmit(AuthLoading(), emit);
     final result = await _authRepository.signUpWithEmail(
       email: event.email,
       password: event.password,
+      name: event.name,
     );
 
     result.fold(
-      (failure) => emit(AuthError(message: failure.message)),
-      (userCredential) => emit(Authenticated(user: userCredential.user!)),
+      (failure) => safeEmit(AuthError(message: failure.message), emit),
+      (userCredential) => safeEmit(Authenticated(user: userCredential.user!), emit),
     );
   }
 
   Future<void> _onSignOutRequested(SignOutRequested event, Emitter<AuthState> emit) async {
-    emit(AuthLoading());
+    safeEmit(AuthLoading(), emit);
     await _authRepository.signOut();
-    emit(Unauthenticated());
+    safeEmit(Unauthenticated(), emit);
   }
 
   Future<void> _onResetPasswordRequested(ResetPasswordRequested event, Emitter<AuthState> emit) async {
     try {
       await _authRepository.resetPassword(event.email);
-      emit(AuthSucces());
+      safeEmit(AuthSucces(), emit);
     } catch (e) {
-      emit(
+      safeEmit(
         AuthError(
           message: e.toString(),
         ),
+        emit,
       );
     }
   }
 
   Future<void> _onSignInWithGoogleRequested(SignInWithGoogleRequested event, Emitter<AuthState> emit) async {
-    emit(AuthLoading());
+    safeEmit(AuthLoading(), emit);
     final result = await _authRepository.signUpWithGoogle();
 
     result.fold(
-      (failure) => emit(AuthError(message: failure.message)),
-      (userCredential) => emit(Authenticated(user: userCredential.user!)),
+      (failure) => safeEmit(AuthError(message: failure.message), emit),
+      (userCredential) => safeEmit(Authenticated(user: userCredential.user!), emit),
     );
-  }
-
-  @override
-  AuthState? fromJson(Map<String, dynamic> json) {
-    // Implement this method if you need to persist state
-    return null;
-  }
-
-  @override
-  Map<String, dynamic>? toJson(AuthState state) {
-    // Implement this method if you need to persist state
-    return null;
   }
 }

@@ -14,6 +14,9 @@ import 'package:injectable/injectable.dart' as _i526;
 import '../../features/auth/bloc/auth_bloc.dart' as _i55;
 import '../../features/auth/data/auth_repository.dart' as _i726;
 import '../../features/auth/data/auth_repository_impl.dart' as _i781;
+import '../../features/home/bloc/user_bloc.dart' as _i677;
+import '../../features/home/data/user_repository.dart' as _i799;
+import '../../features/home/data/user_repository_impl.dart' as _i520;
 import '../../localization/helper/bloc/language_bloc.dart' as _i175;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -29,6 +32,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i175.LanguageBloc>(() => _i175.LanguageBloc());
     gh.factory<_i726.AuthRepository>(() => _i781.AuthRepositoryImpl());
+    gh.factory<_i799.UserRepository>(() => _i520.UserRepositoryImpl());
+    gh.factory<_i677.UserBloc>(() => _i677.UserBloc(userRepository: gh<_i799.UserRepository>()));
     gh.factory<_i55.AuthBloc>(() => _i55.AuthBloc(authRepository: gh<_i726.AuthRepository>()));
     return this;
   }

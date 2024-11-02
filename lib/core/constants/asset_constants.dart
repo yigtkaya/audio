@@ -14,37 +14,11 @@ final class AssetConstants {
 
 @immutable
 final class AssetIcons {
-  final String facebook = AssetConstants.toIcon("facebook_icon");
+  final String audio = AssetConstants.toIcon("audio_icon");
   final String google = AssetConstants.toIcon("google_icon");
-  final String apple = AssetConstants.toIcon("apple_icon");
-  final String images = AssetConstants.toIcon("images_icon");
-  final String road = AssetConstants.toIcon("road");
-  final String ilanlar = AssetConstants.toIcon("ilanlar");
-  final String messages = AssetConstants.toIcon("messages");
-  final String settings = AssetConstants.toIcon("settings");
-  final String location = AssetConstants.toIcon("location");
-  final String world = AssetConstants.toIcon("world");
-  final String logOut = AssetConstants.toIcon("log_out");
-  final String carJourney = AssetConstants.toIcon("car_journey");
-  final String addTrip = AssetConstants.toIcon("add_trip");
-  final String pictures = AssetConstants.toIcon("pictures");
-  final String picturesFirst = AssetConstants.toIcon("pictures_first");
-  final String hurryClock = AssetConstants.toIcon("hurry_clock");
-  final String clock = AssetConstants.toIcon("clock");
-  final String trip = AssetConstants.toIcon("trip");
-  final String sort = AssetConstants.toIcon("sort");
-  final String departurePoint = AssetConstants.toIcon("departure_point");
-  final String destinationPoint = AssetConstants.toIcon("destination_point");
-  final String verticalDivider = AssetConstants.toIcon("vertical_divider");
-  final String paperPlane = AssetConstants.toIcon("paper_plane");
-  final String userShield = AssetConstants.toIcon("user_shield");
-  final String notification = AssetConstants.toIcon("notification");
-  final String emptyStar = AssetConstants.toIcon("empty_star_icon");
-  final String star = AssetConstants.toIcon("star_icon");
-  final String review = AssetConstants.toIcon("review");
 }
 
 @immutable
 final class AssetImages {
-  final String authBackground = AssetConstants.toPng("auth_background_image");
+  final String authBackground = AssetConstants.toPng("logo");
 }

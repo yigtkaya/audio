@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class SplashView extends StatefulWidget {
+final class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
   @override

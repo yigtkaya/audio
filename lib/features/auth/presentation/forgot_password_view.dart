@@ -19,7 +19,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 part './mixins/forgot_password_mixin.dart';
 
 @RoutePage()
-class ForgotPasswordView extends StatefulWidget {
+final class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({super.key});
 
   @override
