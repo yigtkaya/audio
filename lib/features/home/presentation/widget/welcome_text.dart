@@ -5,53 +5,65 @@ final class _WelcomeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
-      builder: (context, state) {
-        if (state is UserLoaded) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                "${context.l10n.welcome}, ${state.user.name.toString()}",
-                style: context.textTheme.bodyMedium,
+    return SliverToBoxAdapter(
+      child: BlocBuilder<UserBloc, UserState>(
+        builder: (context, state) {
+          if (state is UserLoaded) {
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppDesignConstants.horizontalPaddingLarge,
               ),
-              SizedBox(
-                height: AppDesignConstants.verticalPaddingSmall,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: 40.h),
+                  Text(
+                    "${context.l10n.welcome}, ${state.user.name.toString()}",
+                    style: context.textTheme.titleSmall!.copyWith(
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  SizedBox(
+                    height: AppDesignConstants.verticalPaddingSmall,
+                  ),
+                  Text(
+                    context.l10n.welcomeText,
+                    textAlign: TextAlign.start,
+                    style: context.textTheme.titleMedium,
+                  ),
+                  SizedBox(height: 40.h),
+                ],
               ),
-              Text(
-                context.l10n.welcomeText,
-                style: context.textTheme.bodyLarge,
-              ),
-            ],
-          );
-        }
+            );
+          }
 
-        if (state is UserLoading) {
-          return Skeletonizer(
-            enabled: true,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  AppConstants.appName,
-                  style: context.textTheme.bodyMedium,
-                ),
-                SizedBox(
-                  height: AppDesignConstants.verticalPaddingMedium,
-                ),
-                Text(
-                  context.l10n.welcomeText,
-                  style: context.textTheme.bodyLarge,
-                ),
-              ],
-            ),
-          );
-        }
+          if (state is UserLoading) {
+            return Skeletonizer(
+              enabled: true,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    AppConstants.appName,
+                    style: context.textTheme.bodyMedium,
+                  ),
+                  SizedBox(
+                    height: AppDesignConstants.verticalPaddingMedium,
+                  ),
+                  Text(
+                    context.l10n.welcomeText,
+                    style: context.textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+            );
+          }
 
-        return const SizedBox.shrink();
-      },
+          return const SizedBox.shrink();
+        },
+      ),
     );
   }
 }

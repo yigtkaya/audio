@@ -12,7 +12,7 @@ final class LightTheme {
     appBarTheme: AppBarTheme(
       color: AppColors.kWhite,
     ),
-    scaffoldBackgroundColor: AppColors.kBackground,
+    scaffoldBackgroundColor: AppColors.kWhite,
     textTheme: TextTheme(
       titleLarge: _titleLarge,
       titleMedium: _titleMedium,

@@ -5,29 +5,39 @@ final class _AudioAppBar extends StatelessWidget implements PreferredSizeWidget 
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    return SliverAppBar(
+      floating: false,
+      pinned: true,
       centerTitle: true,
-      toolbarHeight: preferredSize.height,
       title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
           AssetIcon(
             iconName: AssetConstants.icons.audio,
             color: AppColors.kPrimary,
             width: 32.r,
             height: 32.r,
           ),
-          SizedBox(
-            width: AppDesignConstants.horizontalPaddingSmall,
-          ),
           Text(
             context.l10n.audio,
             style: context.textTheme.titleSmall,
           ),
-          const Spacer(),
-          CircleAvatar(),
         ],
       ),
+      actions: [
+        Padding(
+          padding: EdgeInsets.only(
+            right: AppDesignConstants.horizontalPaddingMedium,
+          ),
+          child: CircleAvatar(
+            backgroundColor: Colors.grey[300],
+            child: const Icon(
+              Icons.person,
+              color: AppColors.kGreyDark,
+            ),
+          ),
+        ),
+      ],
     );
   }
 

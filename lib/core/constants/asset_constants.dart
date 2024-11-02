@@ -20,5 +20,7 @@ final class AssetIcons {
 
 @immutable
 final class AssetImages {
-  final String authBackground = AssetConstants.toPng("logo");
+  final String authBackground = AssetConstants.toPng("auth_background_image");
+  final String headphone = AssetConstants.toPng("headphone");
+  final String cable = AssetConstants.toPng("cable");
 }

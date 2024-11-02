@@ -212,6 +212,30 @@ abstract class AppLocalizations {
   /// **'Search Headphone'**
   String get searchHeadphone;
 
+  /// No description provided for @headphone.
+  ///
+  /// In en, this message translates to:
+  /// **'Headphone'**
+  String get headphone;
+
+  /// No description provided for @headband.
+  ///
+  /// In en, this message translates to:
+  /// **'Headband'**
+  String get headband;
+
+  /// No description provided for @earpads.
+  ///
+  /// In en, this message translates to:
+  /// **'Earpads'**
+  String get earpads;
+
+  /// No description provided for @cable.
+  ///
+  /// In en, this message translates to:
+  /// **'Cable'**
+  String get cable;
+
   /// No description provided for @trips.
   ///
   /// In en, this message translates to:

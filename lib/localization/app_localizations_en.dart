@@ -65,6 +65,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get searchHeadphone => 'Search Headphone';
 
   @override
+  String get headphone => 'Headphone';
+
+  @override
+  String get headband => 'Headband';
+
+  @override
+  String get earpads => 'Earpads';
+
+  @override
+  String get cable => 'Cable';
+
+  @override
   String get trips => 'Trips';
 
   @override

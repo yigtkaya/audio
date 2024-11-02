@@ -46,23 +46,30 @@ class _CustomSearchTextFormFieldState extends State<CustomSearchTextFormField> {
         fillColor: AppColors.kWhite,
         hintText: widget.hintText,
         hintStyle: context.textTheme.bodyMedium!.copyWith(
-          color: AppColors.kGreyDark,
+          color: AppColors.kGrey,
         ),
         prefixIcon: Icon(
           Icons.search,
-          color: myFocusNode.hasFocus ? AppColors.kPrimary50 : AppColors.kGreyDark,
+          color: myFocusNode.hasFocus ? AppColors.kPrimary : AppColors.kGrey,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(
-            color: AppColors.kGreyDark,
+            color: AppColors.kGrey,
+            width: 1.w,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: AppColors.kGrey,
             width: 1.w,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(
-            color: AppColors.kPrimary50,
+            color: AppColors.kPrimary,
             width: 1.w,
           ),
         ),

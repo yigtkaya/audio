@@ -6,6 +6,7 @@ class AppDesignConstants {
   /// Design constants
   static const designSize = Size(390, 844);
 
+  static double borderRadiusCircular = 32.r;
   static double borderRadius = 16.r;
   static double borderRadiusSmall = 8.r;
 

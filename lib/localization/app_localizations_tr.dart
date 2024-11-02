@@ -65,6 +65,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get searchHeadphone => 'Kulaklık Arayın';
 
   @override
+  String get headphone => 'Kulaklık';
+
+  @override
+  String get headband => 'Kafa Bandı';
+
+  @override
+  String get earpads => 'Bluethooth Kulaklık';
+
+  @override
+  String get cable => 'Kablo';
+
+  @override
   String get trips => 'İlanlar';
 
   @override
