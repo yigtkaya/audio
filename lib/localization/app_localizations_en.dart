@@ -77,6 +77,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cable => 'Cable';
 
   @override
+  String get shopNow => 'Shop Now';
+
+  @override
   String get trips => 'Trips';
 
   @override

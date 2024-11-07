@@ -77,6 +77,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get cable => 'Kablo';
 
   @override
+  String get shopNow => 'Şimdi Al';
+
+  @override
   String get trips => 'İlanlar';
 
   @override

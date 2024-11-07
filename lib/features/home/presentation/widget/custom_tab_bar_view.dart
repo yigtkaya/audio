@@ -7,83 +7,43 @@ final class _CustomTabBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200.h, // Adjust height accordingly
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppDesignConstants.horizontalPaddingLarge,
-        ),
-        child: TabBarView(
-          controller: tabController,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: AppColors.kWhite,
-                borderRadius: BorderRadius.circular(
-                  AppDesignConstants.borderRadius,
-                ),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        top: AppDesignConstants.verticalPaddingLarge,
-                        bottom: AppDesignConstants.verticalPaddingLarge,
-                        left: AppDesignConstants.horizontalPaddingMedium,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "Product Name" * 2,
-                              textAlign: TextAlign.start,
-                              style: context.textTheme.titleSmall,
-                              overflow: TextOverflow.visible,
-                            ),
-                          ),
-                          SizedBox(
-                            height: AppDesignConstants.verticalPaddingLarge,
-                          ),
-                          const Spacer(),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Shop Now",
-                                style: context.textTheme.bodyLarge!.copyWith(
-                                  color: AppColors.kPrimary,
-                                ),
-                              ),
-                              SizedBox(
-                                width: AppDesignConstants.horizontalPaddingMedium,
-                              ),
-                              Icon(
-                                Icons.arrow_right_alt,
-                                color: AppColors.kPrimary,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: AppDesignConstants.horizontalPaddingLarge,
-                  ),
-                  Image.asset(
-                    AssetConstants.images.headphone,
-                  ),
-                ],
-              ),
+    return BlocBuilder<ProductsBloc, ProductsState>(
+      builder: (context, state) {
+        if (state is ProductsLoading || state is ProductsInitial) {
+          return _CustomTabBarViewSkeleton(tabController);
+        }
+
+        if (state is ProductsError) {
+          return Center(
+            child: Text(
+              state.message,
+              style: context.textTheme.bodyMedium,
             ),
-            Center(child: Text('Content for Tab 2')),
-            Center(child: Text('Content for Tab 3')),
-            Center(child: Text('Content for Tab 4')),
-          ],
-        ),
-      ),
+          );
+        }
+        // get categories and their first product
+        final categories = (state as ProductsLoaded).products.map((product) => product.category).toSet().toList();
+
+        final showCaseProducts = categories.map((category) {
+          final product = (state).products.firstWhere((product) => product.category == category);
+          return _ProductBuyNowCard(
+            product: product,
+          );
+        }).toList();
+
+        return SizedBox(
+          height: 200.h,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppDesignConstants.horizontalPaddingLarge,
+            ),
+            child: TabBarView(
+              controller: tabController,
+              children: showCaseProducts,
+            ),
+          ),
+        );
+      },
     );
   }
 }

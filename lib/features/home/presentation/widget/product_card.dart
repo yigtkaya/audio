@@ -1,14 +1,10 @@
 part of '../home_view.dart';
 
 final class _ProductCard extends StatelessWidget {
-  final String name;
-  final String price;
-  final String imagePath;
+  final Product product;
 
   const _ProductCard({
-    required this.name,
-    required this.price,
-    required this.imagePath,
+    required this.product,
   });
 
   @override
@@ -24,15 +20,17 @@ final class _ProductCard extends StatelessWidget {
           ),
         ],
       ),
+      padding: EdgeInsets.symmetric(
+        horizontal: AppDesignConstants.horizontalPaddingSmall,
+        vertical: AppDesignConstants.verticalPaddingMedium,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: Center(
-              child: Image.asset(
-                imagePath,
-                width: 120,
-                height: 120,
+              child: _CachedProductImage(
+                product.photo!.first,
               ),
             ),
           ),
@@ -42,14 +40,14 @@ final class _ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  product.name.toString(),
                   style: context.textTheme.bodyLarge,
                 ),
                 SizedBox(
                   height: AppDesignConstants.verticalPaddingSmall,
                 ),
                 Text(
-                  price,
+                  product.price.toString(),
                   style: context.textTheme.bodyMedium,
                 ),
               ],

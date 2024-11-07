@@ -236,6 +236,12 @@ abstract class AppLocalizations {
   /// **'Cable'**
   String get cable;
 
+  /// No description provided for @shopNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop Now'**
+  String get shopNow;
+
   /// No description provided for @trips.
   ///
   /// In en, this message translates to:

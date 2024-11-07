@@ -5,8 +5,11 @@ import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/constants/app_constants.dart';
 import 'package:audio/features/home/bloc/user_bloc.dart';
 import 'package:audio/features/home/cubit/category_cubit.dart';
+import 'package:audio/features/home/domain/product/product_model.dart';
+import 'package:audio/features/product_shop/bloc/products_bloc.dart';
 import 'package:audio/localization/l10.dart';
 import 'package:audio/shared/widgets/text_fields/custom_search_text_form_field.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:auto_route/auto_route.dart';
@@ -21,10 +24,15 @@ part './widget/welcome_text.dart';
 part './widget/custom_circle_avatar.dart';
 part './widget/product_search_bar.dart';
 part 'widget/custom_tab_bar.dart';
+part 'widget/custom_tab_bar_skeleton.dart';
 part './widget/product_card.dart';
 part './widget/featured_row.dart';
 part './widget/custom_tab_bar_view.dart';
+part './widget/custom_tab_bar_view_skeleton.dart';
 part './widget/feautured_products.dart';
+part './widget/featured_products_skeleton.dart';
+part './widget/product_buy_now_card.dart';
+part './widget/cached_product_image.dart';
 
 @RoutePage()
 class HomeView extends StatefulWidget {
@@ -50,6 +58,9 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin, TickerProviderS
         ),
         BlocProvider<CategoryCubit>(
           create: (context) => getIt.call(),
+        ),
+        BlocProvider<ProductsBloc>(
+          create: (context) => getIt.call()..add(FetchProducts()),
         ),
       ],
       child: Scaffold(

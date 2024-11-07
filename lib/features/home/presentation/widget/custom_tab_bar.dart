@@ -7,33 +7,54 @@ final class _CustomTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabBar(
-      controller: tabController,
-      indicatorColor: AppColors.kPrimary,
-      dividerColor: Colors.transparent,
-      padding: EdgeInsets.symmetric(
-        horizontal: AppDesignConstants.horizontalPaddingLarge,
-      ),
-      indicator: BoxDecoration(
-        borderRadius: BorderRadius.circular(
-          AppDesignConstants.borderRadiusCircular,
-        ),
-        border: Border(
-          bottom: BorderSide.none,
-        ),
-        color: AppColors.kPrimary,
-      ),
-      indicatorPadding: EdgeInsets.zero, // Remove padding between label and indicator
-      labelStyle: context.textTheme.bodyLarge,
-      indicatorSize: TabBarIndicatorSize.tab, // Makes the indicator match the label width
-      labelColor: AppColors.kWhite,
-      unselectedLabelColor: AppColors.kGrey,
-      tabs: [
-        Tab(text: 'Tab 1'),
-        Tab(text: 'Tab 2'),
-        Tab(text: 'Tab 3'),
-        Tab(text: 'Tab 4'),
-      ],
+    return BlocBuilder<ProductsBloc, ProductsState>(
+      builder: (context, state) {
+        if (state is ProductsInitial || state is ProductsLoading) {
+          return Center(
+            child: _CustomAppBarSkeleton(tabController),
+          );
+        }
+
+        if (state is ProductsError) {
+          return Center(
+            child: Text(state.message),
+          );
+        }
+
+        final categories = (state as ProductsLoaded).products.map((product) => product.category).toSet().toList();
+
+        return TabBar(
+          controller: tabController,
+          indicatorColor: AppColors.kPrimary,
+          dividerColor: Colors.transparent,
+          isScrollable: true,
+          tabAlignment: TabAlignment.start,
+          padding: EdgeInsets.symmetric(
+            horizontal: AppDesignConstants.horizontalPaddingLarge,
+          ),
+          indicator: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              AppDesignConstants.borderRadiusCircular,
+            ),
+            border: Border(
+              bottom: BorderSide.none,
+            ),
+            color: AppColors.kPrimary,
+          ),
+          indicatorPadding: EdgeInsets.zero, // Remove padding between label and indicator
+          labelStyle: context.textTheme.bodyMedium,
+          indicatorSize: TabBarIndicatorSize.tab, // Makes the indicator match the label width
+          labelColor: AppColors.kWhite,
+          unselectedLabelColor: AppColors.kGrey,
+          tabs: categories
+              .map(
+                (category) => Tab(
+                  text: category,
+                ),
+              )
+              .toList(),
+        );
+      },
     );
   }
 }
