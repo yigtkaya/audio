@@ -1,4 +1,5 @@
-class Failure {
+/// Failure class to handle error messages and codes
+final class Failure {
   final String message;
   final String code;
 

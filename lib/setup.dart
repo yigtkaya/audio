@@ -8,8 +8,10 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
 
     firebaseConfig();
 
+    /// Configure the dependencies in get_it
     configureDependencies();
 
+    /// Initialize the hydrated storage
     HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: kIsWeb ? HydratedStorage.webStorageDirectory : await getTemporaryDirectory(),
     );
@@ -42,6 +44,7 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
   };
 }
 
+/// Configure the firebase services
 Future<void> firebaseConfig() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

@@ -21,7 +21,8 @@ import '../../features/home/data/user_repository_impl.dart' as _i520;
 import '../../features/product_shop/bloc/products_bloc.dart' as _i997;
 import '../../features/product_shop/data/product_repository.dart' as _i665;
 import '../../features/product_shop/data/product_repository_impl.dart' as _i1003;
-import '../../localization/helper/bloc/language_bloc.dart' as _i175;
+import '../../localization/helper/local_bloc/language_bloc.dart' as _i300;
+import '../services/translation_services.dart' as _i292;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -35,7 +36,8 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i207.CategoryCubit>(() => _i207.CategoryCubit());
-    gh.factory<_i175.LanguageBloc>(() => _i175.LanguageBloc());
+    gh.factory<_i300.LanguageBloc>(() => _i300.LanguageBloc());
+    gh.lazySingleton<_i292.TranslationService>(() => _i292.TranslationService());
     gh.factory<_i726.AuthRepository>(() => _i781.AuthRepositoryImpl());
     gh.factory<_i665.ProductRepository>(() => _i1003.ProductRepositoryImpl());
     gh.factory<_i799.UserRepository>(() => _i520.UserRepositoryImpl());

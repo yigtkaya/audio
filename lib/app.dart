@@ -3,7 +3,7 @@ import 'package:audio/core/observers/custom_route_observer.dart';
 import 'package:audio/core/router/app_router.dart';
 import 'package:audio/core/theme/theme.dart';
 import 'package:audio/localization/app_localizations.dart';
-import 'package:audio/localization/helper/bloc/language_bloc.dart';
+import 'package:audio/localization/helper/local_bloc/language_bloc.dart';
 import 'package:audio/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

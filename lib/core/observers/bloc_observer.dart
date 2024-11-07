@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 
+/// AppBlocObserver is a custom bloc observer that extends BlocObserver.
 final class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
   @override

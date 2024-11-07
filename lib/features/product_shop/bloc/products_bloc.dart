@@ -15,6 +15,7 @@ final class ProductsBloc extends BaseBloc<ProductsEvent, ProductsState> {
     on<FetchProducts>(_onFetchProducts);
   }
 
+  /// Fetch products from the repository
   Future<void> _onFetchProducts(
     FetchProducts event,
     Emitter<ProductsState> emit,
@@ -23,6 +24,7 @@ final class ProductsBloc extends BaseBloc<ProductsEvent, ProductsState> {
 
     final result = await _repository.fetchProducts();
 
+    /// Handle the result of the fetch
     result.fold(
       (failure) => emit(
         ProductsError(
@@ -36,16 +38,4 @@ final class ProductsBloc extends BaseBloc<ProductsEvent, ProductsState> {
       ),
     );
   }
-
-  // Optional: Method for search
-  // Future<void> searchProducts(String query) async {
-  //   emit(ProductsLoading());
-
-  //   final result = await _repository.searchProducts(query);
-
-  //   result.fold(
-  //     (failure) => emit(ProductsError(message: failure.message)),
-  //     (products) => emit(ProductsLoaded(products: products)),
-  //   );
-  // }
 }

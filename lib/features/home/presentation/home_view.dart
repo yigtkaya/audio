@@ -3,6 +3,7 @@ import 'package:audio/core/constants/app_design_constant.dart';
 import 'package:audio/core/di/inject.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/constants/app_constants.dart';
+import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/home/bloc/user_bloc.dart';
 import 'package:audio/features/home/cubit/category_cubit.dart';
 import 'package:audio/features/home/domain/product/product_model.dart';
@@ -18,49 +19,40 @@ import 'package:audio/core/constants/asset_constants.dart';
 import 'package:audio/shared/widgets/icons/asset_icon.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-part './mixin/home_view_mixin.dart';
-part './widget/audio_app_bar.dart';
-part './widget/welcome_text.dart';
-part './widget/custom_circle_avatar.dart';
-part './widget/product_search_bar.dart';
-part 'widget/custom_tab_bar.dart';
-part 'widget/custom_tab_bar_skeleton.dart';
-part './widget/product_card.dart';
-part './widget/featured_row.dart';
-part './widget/custom_tab_bar_view.dart';
-part './widget/custom_tab_bar_view_skeleton.dart';
-part './widget/feautured_products.dart';
-part './widget/featured_products_skeleton.dart';
-part './widget/product_buy_now_card.dart';
-part './widget/cached_product_image.dart';
+part 'mixins/home_view_mixin.dart';
+part 'mixins/custom_tab_bar_mixin.dart';
+part 'widgets/audio_app_bar.dart';
+part 'widgets/welcome_text.dart';
+part 'widgets/custom_circle_avatar.dart';
+part 'widgets/product_search_bar.dart';
+part 'widgets/custom_tab_bar.dart';
+part 'widgets/custom_tab_bar_skeleton.dart';
+part 'widgets/product_card.dart';
+part 'widgets/featured_row.dart';
+part 'widgets/custom_tab_bar_view.dart';
+part 'widgets/custom_tab_bar_view_skeleton.dart';
+part 'widgets/feautured_products.dart';
+part 'widgets/featured_products_skeleton.dart';
+part 'widgets/product_buy_now_card.dart';
+part 'widgets/cached_product_image.dart';
+part 'widgets/home_body.dart';
 
 @RoutePage()
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> with HomeViewMixin, TickerProviderStateMixin {
-  @override
-  void initState() {
-    tabController = TabController(length: 4, vsync: this);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider<UserBloc>(
-          create: (context) => getIt.call()..add(FetchUserEvent()),
+          create: (context) => getIt.call()
+            ..add(
+              FetchUserEvent(),
+            ),
         ),
         BlocProvider<CategoryCubit>(
           create: (context) => getIt.call(),
-        ),
-        BlocProvider<ProductsBloc>(
-          create: (context) => getIt.call()..add(FetchProducts()),
         ),
       ],
       child: Scaffold(
@@ -68,41 +60,8 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin, TickerProviderS
           slivers: [
             _AudioAppBar(),
             _WelcomeText(),
-            _ProductSearchBar(searchController),
-            SliverToBoxAdapter(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.kGreyLight1,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(AppDesignConstants.borderRadius),
-                    topRight: Radius.circular(AppDesignConstants.borderRadius),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 32.h,
-                    ),
-                    _CustomTabBar(tabController),
-                    SizedBox(
-                      height: AppDesignConstants.verticalPaddingLarge,
-                    ),
-                    _CustomTabBarView(tabController),
-                    SizedBox(
-                      height: AppDesignConstants.verticalPaddingLarge,
-                    ),
-                    _FeaturedRow(),
-                    SizedBox(
-                      height: AppDesignConstants.verticalPaddingLarge,
-                    ),
-                    _FeauturedProducts(scrollController),
-                    SizedBox(
-                      height: 40.h,
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            _ProductSearchBar(),
+            _HomeBody(),
           ],
         ),
       ),

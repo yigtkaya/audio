@@ -1,8 +1,8 @@
 part of '../home_view.dart';
 
 final class _ProductSearchBar extends StatelessWidget {
-  final TextEditingController searchController;
-  const _ProductSearchBar(this.searchController);
+  final TextEditingController searchController = TextEditingController();
+  _ProductSearchBar();
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CustomRouteObserver extends RouteObserver<PageRoute<dynamic>> {
+/// CustomRouteObserver is a custom route observer that extends RouteObserver.
+///  It is used to observe the route changes in the app.
+@immutable
+final class CustomRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   @override
   void didPush(Route route, Route? previousRoute) async {
     super.didPush(route, previousRoute);
