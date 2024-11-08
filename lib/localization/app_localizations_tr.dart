@@ -37,7 +37,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get forgotPasswordTitle => 'Şifremi Unuttum';
 
   @override
-  String get forgotPasswordDescription => 'Şifrenizi sıfırlamak için e-posta adresinizi girin';
+  String get forgotPasswordDescription =>
+      'Şifrenizi sıfırlamak için e-posta adresinizi girin';
 
   @override
   String get sendLink => 'Send Link';
@@ -77,6 +78,42 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get shopNow => 'Şimdi Al';
+
+  @override
+  String get filter => 'Filtrele';
+
+  @override
+  String get newest => 'En Yeni';
+
+  @override
+  String get mostExpensive => 'En Pahalı';
+
+  @override
+  String get category => 'Kategori';
+
+  @override
+  String get sortBy => 'Sırala';
+
+  @override
+  String get priceRange => 'Fiyat Aralığı';
+
+  @override
+  String get minPrice => 'Min Fiyat';
+
+  @override
+  String get maxPrice => 'Max Fiyat';
+
+  @override
+  String get applyFilter => 'Filtreleri Uygula';
+
+  @override
+  String get oldest => 'En Eski';
+
+  @override
+  String get cheapest => 'En Ucuz';
+
+  @override
+  String get rating => 'En Yüksek Puan';
 
   @override
   String get trips => 'İlanlar';
@@ -151,7 +188,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pleaseChooseTrip => 'Lütfen bir yolculuk seçin';
 
   @override
-  String get chooseInviterTrip => 'Yolcuyu davet etmek istediğiniz yolculuğunuzu seçin';
+  String get chooseInviterTrip =>
+      'Yolcuyu davet etmek istediğiniz yolculuğunuzu seçin';
 
   @override
   String get chooseInviteeTrip => 'Davet edilecek yolculuğu seçin';
@@ -224,7 +262,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pleaseEnterEmail => 'Lütfen e-posta adresinizi girin';
 
   @override
-  String get aPasswordShouldBeAtLeast8Characters => 'Şifre en az 8 karakter olmalıdır';
+  String get aPasswordShouldBeAtLeast8Characters =>
+      'Şifre en az 8 karakter olmalıdır';
 
   @override
   String get notAvalidNumberPlate => 'Geçerli bir plaka numarası giriniz';
@@ -254,7 +293,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get chooseImage => 'Fotoğraf Kaynağı Seç';
 
   @override
-  String get pleaseChooseImageFromGalleryOrTakeAPhoto => 'Lütfen galeriden fotoğraf seçin veya fotoğraf çekin';
+  String get pleaseChooseImageFromGalleryOrTakeAPhoto =>
+      'Lütfen galeriden fotoğraf seçin veya fotoğraf çekin';
 
   @override
   String get gallery => 'Galeri';
@@ -348,7 +388,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get uploadStudentCertificate => 'Öğrenci Belgesi Yükle';
 
   @override
-  String get uploadStudentCertificateDesc => 'Öğrenci statünüzü doğrulamak için lütfen öğrenci belgenizi yükleyin';
+  String get uploadStudentCertificateDesc =>
+      'Öğrenci statünüzü doğrulamak için lütfen öğrenci belgenizi yükleyin';
 
   @override
   String get incaseVerification =>
@@ -365,13 +406,16 @@ class AppLocalizationsTr extends AppLocalizations {
       'Başarıyla giriş yaptınız ve profilinizi oluşturdunuz ancak hesabınız henüz onaylanmadı. Lütfen yöneticinin hesabınızı onaylamasını bekleyin.';
 
   @override
-  String get pleaseUploadStudentCertificate => 'Lütfen öğrenci belgesi yükleyin';
+  String get pleaseUploadStudentCertificate =>
+      'Lütfen öğrenci belgesi yükleyin';
 
   @override
-  String get yourProfileCreatedSuccesfully => 'Profiliniz başarıyla oluşturuldu';
+  String get yourProfileCreatedSuccesfully =>
+      'Profiliniz başarıyla oluşturuldu';
 
   @override
-  String get startChatting => 'Konuşma başlatmak için ilanlar sayfasından bir yolculuk seçin';
+  String get startChatting =>
+      'Konuşma başlatmak için ilanlar sayfasından bir yolculuk seçin';
 
   @override
   String get createTrip => 'Yolculuk Paylaş';
@@ -380,7 +424,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get passengerLimit => 'Yolcu Limiti';
 
   @override
-  String get passengerLimitDescription => '*Lütfen en fazla kaç kişiyle yolculuk yapmak istediğinizi girin.';
+  String get passengerLimitDescription =>
+      '*Lütfen en fazla kaç kişiyle yolculuk yapmak istediğinizi girin.';
 
   @override
   String get pleaseEnterPassengerLimit => 'Lütfen yolcu limitini girin';
@@ -434,13 +479,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get yourTripIsCanceled => 'Yolculuğunuz iptal edildi';
 
   @override
-  String get areYouSureToEndTheTrip => 'Yolculuğu bitirmek istediğinize emin misiniz?';
+  String get areYouSureToEndTheTrip =>
+      'Yolculuğu bitirmek istediğinize emin misiniz?';
 
   @override
-  String get areYouSureToStartTheTrip => 'Yolculuğu başlatmak istediğinize emin misiniz?';
+  String get areYouSureToStartTheTrip =>
+      'Yolculuğu başlatmak istediğinize emin misiniz?';
 
   @override
-  String get areYouSureToCancelTheTrip => 'Yolculuğu iptal etmek istediğinize emin misiniz?';
+  String get areYouSureToCancelTheTrip =>
+      'Yolculuğu iptal etmek istediğinize emin misiniz?';
 
   @override
   String get endTripContent =>

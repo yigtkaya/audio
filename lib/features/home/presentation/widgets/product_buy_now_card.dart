@@ -11,7 +11,10 @@ final class _ProductBuyNowCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.router.push(
-        ProductShopRoute(),
+        ProductShopRoute(
+          selectedCategory: product.category.toString(),
+          selectedTitle: product.name.toString(),
+        ),
       ),
       child: Container(
         decoration: BoxDecoration(

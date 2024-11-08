@@ -6,7 +6,7 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
-    firebaseConfig();
+    await firebaseConfig();
 
     /// Configure the dependencies in get_it
     configureDependencies();

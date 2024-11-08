@@ -15,6 +15,7 @@ import 'package:audio/features/auth/presentation/splash_view.dart' as _i6;
 import 'package:audio/features/home/presentation/home_view.dart' as _i2;
 import 'package:audio/features/product_shop/presentation/product_shop_view.dart' as _i4;
 import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
 
 /// generated route for
 /// [_i1.ForgotPasswordView]
@@ -75,10 +76,19 @@ class LoginRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.ProductShopView]
-class ProductShopRoute extends _i7.PageRouteInfo<void> {
-  const ProductShopRoute({List<_i7.PageRouteInfo>? children})
-      : super(
+class ProductShopRoute extends _i7.PageRouteInfo<ProductShopRouteArgs> {
+  ProductShopRoute({
+    _i8.Key? key,
+    required String selectedCategory,
+    required String selectedTitle,
+    List<_i7.PageRouteInfo>? children,
+  }) : super(
           ProductShopRoute.name,
+          args: ProductShopRouteArgs(
+            key: key,
+            selectedCategory: selectedCategory,
+            selectedTitle: selectedTitle,
+          ),
           initialChildren: children,
         );
 
@@ -87,9 +97,33 @@ class ProductShopRoute extends _i7.PageRouteInfo<void> {
   static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
-      return const _i4.ProductShopView();
+      final args = data.argsAs<ProductShopRouteArgs>();
+      return _i4.ProductShopView(
+        key: args.key,
+        selectedCategory: args.selectedCategory,
+        selectedTitle: args.selectedTitle,
+      );
     },
   );
+}
+
+class ProductShopRouteArgs {
+  const ProductShopRouteArgs({
+    this.key,
+    required this.selectedCategory,
+    required this.selectedTitle,
+  });
+
+  final _i8.Key? key;
+
+  final String selectedCategory;
+
+  final String selectedTitle;
+
+  @override
+  String toString() {
+    return 'ProductShopRouteArgs{key: $key, selectedCategory: $selectedCategory, selectedTitle: $selectedTitle}';
+  }
 }
 
 /// generated route for

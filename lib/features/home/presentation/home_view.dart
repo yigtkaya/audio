@@ -20,7 +20,6 @@ import 'package:audio/shared/widgets/icons/asset_icon.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 part 'mixins/home_view_mixin.dart';
-part 'mixins/custom_tab_bar_mixin.dart';
 part 'widgets/audio_app_bar.dart';
 part 'widgets/welcome_text.dart';
 part 'widgets/custom_circle_avatar.dart';

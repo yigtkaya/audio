@@ -1,22 +1,17 @@
 part of '../home_view.dart';
 
-final class _CustomTabBar extends StatefulWidget {
+final class _CustomTabBar extends StatelessWidget {
   final TabController tabController;
 
   const _CustomTabBar(this.tabController);
 
-  @override
-  State<_CustomTabBar> createState() => _CustomTabBarState();
-}
-
-class _CustomTabBarState extends State<_CustomTabBar> with _CustomTapBarMixin {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductsBloc, ProductsState>(
       builder: (context, state) {
         if (state is ProductsInitial || state is ProductsLoading) {
           return Center(
-            child: _CustomAppBarSkeleton(widget.tabController),
+            child: _CustomAppBarSkeleton(tabController),
           );
         }
 
@@ -29,7 +24,7 @@ class _CustomTabBarState extends State<_CustomTabBar> with _CustomTapBarMixin {
         final categories =
             (state as ProductsLoaded).products.map((product) => product.category.toString()).toSet().toList();
         return TabBar(
-          controller: widget.tabController,
+          controller: tabController,
           indicatorColor: AppColors.kPrimary,
           dividerColor: Colors.transparent,
           isScrollable: true,

@@ -1,3 +1,5 @@
+// ignore_for_file: implementation_imports
+
 import 'package:audio/core/network/failure.dart';
 import 'package:audio/features/auth/data/auth_repository.dart';
 import 'package:audio/features/auth/domain/user_model.dart';
