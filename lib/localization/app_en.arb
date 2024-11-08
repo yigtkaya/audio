@@ -35,6 +35,8 @@
   "oldest": "Oldest",
   "cheapest": "Cheapest",
   "rating": "Best Rating",
+  "overview": "Overview",
+  "features": "Features",
 
   "trips": "Trips",
   "messages": "Messages",

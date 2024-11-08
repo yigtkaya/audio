@@ -43,4 +43,22 @@ class ProductRepositoryImpl implements ProductRepository {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, Product>> fetchProduct(String id) async {
+    try {
+      final repsonse = await productsRef.doc(id).get();
+
+      return Right(
+        repsonse.data()!,
+      );
+    } on FirebaseException catch (e) {
+      return Left(
+        Failure(
+          message: e.message.toString(),
+          code: e.code,
+        ),
+      );
+    }
+  }
 }

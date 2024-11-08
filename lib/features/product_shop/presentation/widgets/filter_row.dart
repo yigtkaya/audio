@@ -6,6 +6,9 @@ final class _FilterRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(
+        horizontal: AppDesignConstants.horizontalPaddingMedium,
+      ),
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [

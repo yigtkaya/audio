@@ -1,7 +1,11 @@
-part of '../product_shop_view.dart';
+import 'package:audio/core/constants/app_design_constant.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-final class _SceondaryAudioAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const _SceondaryAudioAppBar();
+final class SecondaryAudioAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const SecondaryAudioAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,6 +3,7 @@ import 'package:audio/core/constants/app_design_constant.dart';
 import 'package:audio/core/di/inject.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/constants/app_constants.dart';
+import 'package:audio/core/extensions/string_extension.dart';
 import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/home/bloc/user_bloc.dart';
 import 'package:audio/features/home/cubit/category_cubit.dart';

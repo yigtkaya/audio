@@ -18,6 +18,7 @@ import '../../features/home/bloc/user_bloc.dart' as _i677;
 import '../../features/home/cubit/category_cubit.dart' as _i207;
 import '../../features/home/data/user_repository.dart' as _i799;
 import '../../features/home/data/user_repository_impl.dart' as _i520;
+import '../../features/product_detail/bloc/product_bloc.dart' as _i422;
 import '../../features/product_shop/bloc/products_bloc.dart' as _i997;
 import '../../features/product_shop/cubit/filter_cubit.dart' as _i202;
 import '../../features/product_shop/data/product_repository.dart' as _i665;
@@ -45,6 +46,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i799.UserRepository>(() => _i520.UserRepositoryImpl());
     gh.factory<_i677.UserBloc>(() => _i677.UserBloc(userRepository: gh<_i799.UserRepository>()));
     gh.factory<_i55.AuthBloc>(() => _i55.AuthBloc(authRepository: gh<_i726.AuthRepository>()));
+    gh.factory<_i422.ProductBloc>(() => _i422.ProductBloc(gh<_i665.ProductRepository>()));
     gh.factory<_i997.ProductsBloc>(() => _i997.ProductsBloc(gh<_i665.ProductRepository>()));
     return this;
   }

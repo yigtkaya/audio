@@ -116,6 +116,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get rating => 'En Yüksek Puan';
 
   @override
+  String get overview => 'Genel Bakış';
+
+  @override
+  String get features => 'Özellikler';
+
+  @override
   String get trips => 'İlanlar';
 
   @override

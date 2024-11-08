@@ -20,6 +20,8 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Product {
+  @JsonKey(name: "id")
+  String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "price")
@@ -51,7 +53,8 @@ abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) = _$ProductCopyWithImpl<$Res, Product>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String? name,
+      {@JsonKey(name: "id") String? id,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "price") int? price,
       @JsonKey(name: "category") String? category,
       @JsonKey(name: "rating") double? rating,
@@ -75,6 +78,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product> implements $ProductCopyW
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? category = freezed,
@@ -85,6 +89,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product> implements $ProductCopyW
     Object? features = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -128,7 +136,8 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String? name,
+      {@JsonKey(name: "id") String? id,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "price") int? price,
       @JsonKey(name: "category") String? category,
       @JsonKey(name: "rating") double? rating,
@@ -148,6 +157,7 @@ class __$$ProductImplCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res, _$Pr
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? category = freezed,
@@ -158,6 +168,10 @@ class __$$ProductImplCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res, _$Pr
     Object? features = freezed,
   }) {
     return _then(_$ProductImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -198,7 +212,8 @@ class __$$ProductImplCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res, _$Pr
 @JsonSerializable()
 class _$ProductImpl implements _Product {
   const _$ProductImpl(
-      {@JsonKey(name: "name") this.name,
+      {@JsonKey(name: "id") this.id,
+      @JsonKey(name: "name") this.name,
       @JsonKey(name: "price") this.price,
       @JsonKey(name: "category") this.category,
       @JsonKey(name: "rating") this.rating,
@@ -211,6 +226,9 @@ class _$ProductImpl implements _Product {
 
   factory _$ProductImpl.fromJson(Map<String, dynamic> json) => _$$ProductImplFromJson(json);
 
+  @override
+  @JsonKey(name: "id")
+  final String? id;
   @override
   @JsonKey(name: "name")
   final String? name;
@@ -253,7 +271,7 @@ class _$ProductImpl implements _Product {
 
   @override
   String toString() {
-    return 'Product(name: $name, price: $price, category: $category, rating: $rating, photo: $photo, description: $description, publishDate: $publishDate, features: $features)';
+    return 'Product(id: $id, name: $name, price: $price, category: $category, rating: $rating, photo: $photo, description: $description, publishDate: $publishDate, features: $features)';
   }
 
   @override
@@ -261,6 +279,7 @@ class _$ProductImpl implements _Product {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.category, category) || other.category == category) &&
@@ -275,6 +294,7 @@ class _$ProductImpl implements _Product {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       name,
       price,
       category,
@@ -301,7 +321,8 @@ class _$ProductImpl implements _Product {
 
 abstract class _Product implements Product {
   const factory _Product(
-      {@JsonKey(name: "name") final String? name,
+      {@JsonKey(name: "id") final String? id,
+      @JsonKey(name: "name") final String? name,
       @JsonKey(name: "price") final int? price,
       @JsonKey(name: "category") final String? category,
       @JsonKey(name: "rating") final double? rating,
@@ -312,6 +333,9 @@ abstract class _Product implements Product {
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
 
+  @override
+  @JsonKey(name: "id")
+  String? get id;
   @override
   @JsonKey(name: "name")
   String? get name;

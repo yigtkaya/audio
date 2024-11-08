@@ -116,6 +116,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rating => 'Best Rating';
 
   @override
+  String get overview => 'Overview';
+
+  @override
+  String get features => 'Features';
+
+  @override
   String get trips => 'Trips';
 
   @override

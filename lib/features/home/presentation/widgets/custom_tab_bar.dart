@@ -49,7 +49,7 @@ final class _CustomTabBar extends StatelessWidget {
           tabs: categories
               .map(
                 (category) => Tab(
-                  text: category,
+                  text: category.capitalizeFirstLetter(),
                 ),
               )
               .toList(),

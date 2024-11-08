@@ -30,7 +30,7 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
     final deviceLocale = Locale(Platform.localeName.substring(0, 2));
 
     if (deviceLocale == const Locale('tr')) {
-      emit(state.copyWith(selectedLanguage: turkish));
+      emit(state.copyWith(selectedLanguage: english));
       return;
     }
     emit(state.copyWith(selectedLanguage: english));

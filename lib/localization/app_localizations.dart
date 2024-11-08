@@ -314,6 +314,18 @@ abstract class AppLocalizations {
   /// **'Best Rating'**
   String get rating;
 
+  /// No description provided for @overview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get overview;
+
+  /// No description provided for @features.
+  ///
+  /// In en, this message translates to:
+  /// **'Features'**
+  String get features;
+
   /// No description provided for @trips.
   ///
   /// In en, this message translates to:
