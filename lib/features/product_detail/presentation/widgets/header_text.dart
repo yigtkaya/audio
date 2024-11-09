@@ -1,5 +1,6 @@
 part of '../product_detail_view.dart';
 
+// Updated _HeaderText widget
 final class _HeaderText extends StatelessWidget {
   const _HeaderText();
 
@@ -26,23 +27,29 @@ final class _HeaderText extends StatelessWidget {
 
         final product = (state as ProductLoaded).products;
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 24.h),
-            Text(
-              '${product.price} \$',
-              style: context.textTheme.titleSmall!.copyWith(
-                color: AppColors.kPrimary,
+        return Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppDesignConstants.horizontalPaddingMedium,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                '${product.price} \$',
+                style: context.textTheme.titleMedium!.copyWith(
+                  color: AppColors.kPrimary,
+                ),
               ),
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              product.name.toString(),
-              style: context.textTheme.titleMedium,
-            ),
-            SizedBox(height: 24.h),
-          ],
+              SizedBox(height: 8.h),
+              Text(
+                product.name.toString(),
+                style: context.textTheme.titleLarge?.copyWith(
+                  color: AppColors.kBlack,
+                ),
+              ),
+            ],
+          ),
         );
       },
     );

@@ -2,7 +2,7 @@ import 'package:audio/core/constants/app_design_constant.dart';
 import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/home/domain/product/product_model.dart';
-import 'package:audio/shared/widgets/container/cached_product_image.dart';
+import 'package:audio/core/widgets/container/cached_product_image.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 

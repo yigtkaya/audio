@@ -122,6 +122,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get features => 'Özellikler';
 
   @override
+  String get addToCart => 'Sepete Ekle';
+
+  @override
+  String get relatedProducts => 'İlgili Ürünler';
+
+  @override
   String get trips => 'İlanlar';
 
   @override

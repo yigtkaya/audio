@@ -7,7 +7,7 @@ mixin _FilterButtonMixin on State<_FilterButton> {
       isScrollControlled: true,
       showDragHandle: true,
       useRootNavigator: false,
-      barrierColor: AppColors.kBlack,
+      barrierColor: AppColors.kBlack.withOpacity(0.5),
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(

@@ -37,6 +37,8 @@
   "rating": "Best Rating",
   "overview": "Overview",
   "features": "Features",
+  "addToCart": "Add to Cart",
+  "relatedProducts": "Related Products",
 
   "trips": "Trips",
   "messages": "Messages",

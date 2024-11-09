@@ -1,7 +1,7 @@
 import 'package:audio/core/constants/asset_constants.dart';
 import 'package:audio/core/router/app_router.gr.dart';
 import 'package:audio/features/auth/bloc/auth_bloc.dart';
-import 'package:audio/shared/widgets/loading/custom_loading_dialog.dart';
+import 'package:audio/core/widgets/loading/custom_loading_dialog.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -10,14 +10,14 @@ import 'package:audio/features/home/cubit/category_cubit.dart';
 import 'package:audio/features/home/domain/product/product_model.dart';
 import 'package:audio/features/product_shop/bloc/products_bloc.dart';
 import 'package:audio/localization/l10.dart';
-import 'package:audio/shared/widgets/text_fields/custom_search_text_form_field.dart';
+import 'package:audio/core/widgets/text_fields/custom_search_text_form_field.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:audio/core/constants/asset_constants.dart';
-import 'package:audio/shared/widgets/icons/asset_icon.dart';
+import 'package:audio/core/widgets/icons/asset_icon.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 part 'mixins/home_view_mixin.dart';

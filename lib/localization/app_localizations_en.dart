@@ -122,6 +122,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get features => 'Features';
 
   @override
+  String get addToCart => 'Add to Cart';
+
+  @override
+  String get relatedProducts => 'Related Products';
+
+  @override
   String get trips => 'Trips';
 
   @override

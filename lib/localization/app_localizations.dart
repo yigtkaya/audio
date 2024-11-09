@@ -326,6 +326,18 @@ abstract class AppLocalizations {
   /// **'Features'**
   String get features;
 
+  /// No description provided for @addToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Cart'**
+  String get addToCart;
+
+  /// No description provided for @relatedProducts.
+  ///
+  /// In en, this message translates to:
+  /// **'Related Products'**
+  String get relatedProducts;
+
   /// No description provided for @trips.
   ///
   /// In en, this message translates to:
