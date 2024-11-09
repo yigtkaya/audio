@@ -6,7 +6,7 @@ import 'package:audio/core/extensions/string_extension.dart';
 import 'package:audio/features/product_shop/bloc/products_bloc.dart';
 import 'package:audio/features/product_shop/cubit/filter_cubit.dart';
 import 'package:audio/localization/l10.dart';
-import 'package:audio/core/widgets/app_bar/sceondary_audio_app_bar.dart';
+import 'package:audio/core/widgets/app_bar/secondary_audio_app_bar.dart';
 import 'package:audio/core/widgets/container/product_card.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,7 @@
 import 'package:audio/app.dart';
 import 'package:audio/core/di/inject.dart';
 import 'package:audio/features/auth/bloc/auth_bloc.dart';
+import 'package:audio/features/shopping_cart/cubit/cart_cubit.dart';
 import 'package:audio/localization/helper/local_bloc/language_bloc.dart';
 import 'package:audio/core/constants/app_constants.dart';
 import 'package:flutter/foundation.dart';
@@ -30,6 +31,9 @@ void main() {
             ),
         ),
         BlocProvider<AuthBloc>(
+          create: (context) => getIt.call(),
+        ),
+        BlocProvider<CartCubit>(
           create: (context) => getIt.call(),
         ),
       ],

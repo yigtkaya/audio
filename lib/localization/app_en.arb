@@ -39,6 +39,9 @@
   "features": "Features",
   "addToCart": "Add to Cart",
   "relatedProducts": "Related Products",
+  "shoppingCart": "Shopping Cart",
+  "emptyCart": "Your cart is empty",
+  "checkout": "Checkout with total: ",
 
   "trips": "Trips",
   "messages": "Messages",

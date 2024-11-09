@@ -5,15 +5,19 @@ import 'package:audio/core/extensions/build_context_extension.dart';
 import 'package:audio/core/extensions/list_extension.dart';
 import 'package:audio/core/widgets/buttons/custom_elevated_button.dart';
 import 'package:audio/features/home/domain/features/features_model.dart';
+import 'package:audio/features/home/domain/product/product_model.dart';
 import 'package:audio/features/product_detail/bloc/product_bloc.dart';
+import 'package:audio/features/shopping_cart/cubit/cart_cubit.dart';
+import 'package:audio/features/shopping_cart/cubit/cart_item.dart';
 import 'package:audio/localization/l10.dart';
-import 'package:audio/core/widgets/app_bar/sceondary_audio_app_bar.dart';
+import 'package:audio/core/widgets/app_bar/secondary_audio_app_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+part './mixins/product_detail_mixin.dart';
 part './widgets/header_text.dart';
 part './widgets/custom_tab_bar.dart';
 part './widgets/overview_tab_view.dart';
@@ -43,9 +47,7 @@ final class _ProductDetailBody extends StatefulWidget {
   State<_ProductDetailBody> createState() => _ProductDetailBodyState();
 }
 
-class _ProductDetailBodyState extends State<_ProductDetailBody> with TickerProviderStateMixin {
-  late TabController _tabController;
-
+class _ProductDetailBodyState extends State<_ProductDetailBody> with TickerProviderStateMixin, _ProductDetailMixin {
   @override
   void initState() {
     super.initState();
@@ -53,16 +55,11 @@ class _ProductDetailBodyState extends State<_ProductDetailBody> with TickerProvi
   }
 
   @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       appBar: const SecondaryAudioAppBar(),
-      bottomNavigationBar: _AddToCartButton(() {}),
+      bottomNavigationBar: _AddToCartButton((product) => onAddCartPressed(product)),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -81,6 +78,9 @@ class _ProductDetailBodyState extends State<_ProductDetailBody> with TickerProvi
                 const _FeaturesTabView(),
               ],
             ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 40.h),
           ),
         ],
       ),

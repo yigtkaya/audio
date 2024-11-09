@@ -338,6 +338,24 @@ abstract class AppLocalizations {
   /// **'Related Products'**
   String get relatedProducts;
 
+  /// No description provided for @shoppingCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Shopping Cart'**
+  String get shoppingCart;
+
+  /// No description provided for @emptyCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cart is empty'**
+  String get emptyCart;
+
+  /// No description provided for @checkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout with total: '**
+  String get checkout;
+
   /// No description provided for @trips.
   ///
   /// In en, this message translates to:

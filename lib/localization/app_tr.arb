@@ -39,6 +39,9 @@
   "features": "Özellikler",
   "addToCart": "Sepete Ekle",
   "relatedProducts": "İlgili Ürünler",
+  "shoppingCart": "Alışveriş Sepeti",
+  "emptyCart": "Sepetinizde ürün bulunmamaktadır",
+  "checkout": "Ödeme, Toplam: ",
 
   "trips": "İlanlar",
   "messages": "Sohbetler",

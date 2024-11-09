@@ -128,6 +128,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get relatedProducts => 'Related Products';
 
   @override
+  String get shoppingCart => 'Shopping Cart';
+
+  @override
+  String get emptyCart => 'Your cart is empty';
+
+  @override
+  String get checkout => 'Checkout with total: ';
+
+  @override
   String get trips => 'Trips';
 
   @override

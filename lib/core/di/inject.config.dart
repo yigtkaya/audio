@@ -23,6 +23,7 @@ import '../../features/product_shop/bloc/products_bloc.dart' as _i997;
 import '../../features/product_shop/cubit/filter_cubit.dart' as _i202;
 import '../../features/product_shop/data/product_repository.dart' as _i665;
 import '../../features/product_shop/data/product_repository_impl.dart' as _i1003;
+import '../../features/shopping_cart/cubit/cart_cubit.dart' as _i67;
 import '../../localization/helper/local_bloc/language_bloc.dart' as _i300;
 import '../services/translation_services.dart' as _i292;
 
@@ -40,6 +41,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i207.CategoryCubit>(() => _i207.CategoryCubit());
     gh.factory<_i202.FilterCubit>(() => _i202.FilterCubit());
     gh.factory<_i300.LanguageBloc>(() => _i300.LanguageBloc());
+    gh.factory<_i67.CartCubit>(() => _i67.CartCubit());
     gh.lazySingleton<_i292.TranslationService>(() => _i292.TranslationService());
     gh.factory<_i726.AuthRepository>(() => _i781.AuthRepositoryImpl());
     gh.factory<_i665.ProductRepository>(() => _i1003.ProductRepositoryImpl());

@@ -35,6 +35,7 @@ final class _HeaderText extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              SizedBox(height: 16.h),
               Text(
                 '${product.price} \$',
                 style: context.textTheme.titleMedium!.copyWith(
@@ -44,10 +45,12 @@ final class _HeaderText extends StatelessWidget {
               SizedBox(height: 8.h),
               Text(
                 product.name.toString(),
+                textAlign: TextAlign.start,
                 style: context.textTheme.titleLarge?.copyWith(
                   color: AppColors.kBlack,
                 ),
               ),
+              SizedBox(height: 16.h),
             ],
           ),
         );
