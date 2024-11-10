@@ -353,8 +353,26 @@ abstract class AppLocalizations {
   /// No description provided for @checkout.
   ///
   /// In en, this message translates to:
-  /// **'Checkout with total: '**
+  /// **'Checkout'**
   String get checkout;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @featured.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured'**
+  String get featured;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get seeAll;
 
   /// No description provided for @trips.
   ///

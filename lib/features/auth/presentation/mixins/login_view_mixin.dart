@@ -23,7 +23,7 @@ mixin LoginViewMixin on State<LoginView> {
 
     // Listen for authentication success or failure to complete the Future.
     final subscription = context.read<AuthBloc>().stream.listen((state) {
-      if (state is Authenticated || state is AuthError) {
+      if (state is Authenticated || state is AuthError || state is Unauthenticated) {
         completer.complete();
       }
     });

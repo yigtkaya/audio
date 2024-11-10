@@ -9,11 +9,33 @@ final class _CheckoutButton extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: EdgeInsets.all(AppDesignConstants.horizontalPaddingMedium),
-          child: CustomRoundedButton(
-            text: '${context.l10n.checkout} \$${state.totalPrice.toStringAsFixed(2)}',
-            onTap: () {},
-            bgColor: AppColors.kPrimary,
-            height: 50.h,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${context.l10n.total}:',
+                    style: context.textTheme.bodyMedium,
+                  ),
+                  Text(
+                    '\$${state.totalPrice.toStringAsFixed(2)}',
+                    style: context.textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: AppDesignConstants.verticalPaddingLarge,
+              ),
+              CustomRoundedButton(
+                width: double.infinity,
+                text: context.l10n.checkout,
+                onTap: () {},
+                bgColor: AppColors.kPrimary,
+                height: 50.h,
+              ),
+            ],
           ),
         );
       },

@@ -26,8 +26,8 @@ class _HomeBodyState extends State<_HomeBody> with _HomeViewMixin, TickerProvide
           decoration: BoxDecoration(
             color: AppColors.kGreyLight1,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(AppDesignConstants.borderRadius),
-              topRight: Radius.circular(AppDesignConstants.borderRadius),
+              topLeft: Radius.circular(AppDesignConstants.borderRadiusCircular),
+              topRight: Radius.circular(AppDesignConstants.borderRadiusCircular),
             ),
           ),
           child: Column(

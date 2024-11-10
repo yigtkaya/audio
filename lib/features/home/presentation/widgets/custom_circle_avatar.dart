@@ -1,10 +1,16 @@
 part of '../home_view.dart';
 
-class CustomCircleAvatar extends StatelessWidget {
-  const CustomCircleAvatar({super.key});
+final class _CustomCircleAvatar extends StatelessWidget {
+  final String photo;
+  const _CustomCircleAvatar(this.photo);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return GestureDetector(
+      onTap: () => context.router.push(ProfileRoute()),
+      child: CircleAvatar(
+        backgroundImage: CachedNetworkImageProvider(photo),
+      ),
+    );
   }
 }

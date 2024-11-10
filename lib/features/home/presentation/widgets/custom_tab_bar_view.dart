@@ -26,21 +26,22 @@ final class _CustomTabBarView extends StatelessWidget {
 
         final showCaseProducts = categories.map((category) {
           final product = (state).products.firstWhere((product) => product.category == category);
-          return _ProductBuyNowCard(
-            product: product,
+          return Padding(
+            padding: EdgeInsets.only(
+              left: AppDesignConstants.horizontalPaddingMedium,
+              right: AppDesignConstants.horizontalPaddingMedium,
+            ),
+            child: _ProductBuyNowCard(
+              product: product,
+            ),
           );
         }).toList();
 
         return SizedBox(
           height: 200.h,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppDesignConstants.horizontalPaddingLarge,
-            ),
-            child: TabBarView(
-              controller: tabController,
-              children: showCaseProducts,
-            ),
+          child: TabBarView(
+            controller: tabController,
+            children: showCaseProducts,
           ),
         );
       },

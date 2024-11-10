@@ -13,16 +13,24 @@ final class _FeaturedRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Featured Products",
+            context.l10n.featured,
             style: context.textTheme.bodyMedium!.copyWith(
               fontSize: 16.sp,
             ),
           ),
-          Text(
-            "See All",
-            style: context.textTheme.bodyMedium!.copyWith(
-              color: AppColors.kGrey,
-              fontSize: 15.sp,
+          GestureDetector(
+            onTap: () => context.router.push(
+              ProductShopRoute(
+                selectedCategory: null,
+                selectedTitle: null,
+              ),
+            ),
+            child: Text(
+              context.l10n.seeAll,
+              style: context.textTheme.bodyMedium!.copyWith(
+                color: AppColors.kGrey,
+                fontSize: 15.sp,
+              ),
             ),
           ),
         ],

@@ -41,7 +41,10 @@
   "relatedProducts": "Related Products",
   "shoppingCart": "Shopping Cart",
   "emptyCart": "Your cart is empty",
-  "checkout": "Checkout with total: ",
+  "checkout": "Checkout",
+  "total": "Total",
+  "featured": "Featured",
+  "seeAll": "See All",
 
   "trips": "Trips",
   "messages": "Messages",

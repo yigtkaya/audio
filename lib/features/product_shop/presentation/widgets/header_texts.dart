@@ -1,8 +1,8 @@
 part of '../product_shop_view.dart';
 
 final class _HeaderTexts extends StatelessWidget {
-  final String category;
-  final String title;
+  final String? category;
+  final String? title;
   const _HeaderTexts(
     this.category,
     this.title,
@@ -20,22 +20,26 @@ final class _HeaderTexts extends StatelessWidget {
           SizedBox(
             height: 24.h,
           ),
-          Text(
-            category.capitalizeFirstLetter(),
-            style: context.textTheme.bodyMedium!.copyWith(
-              fontSize: 16.sp,
+          if (category != null) ...[
+            Text(
+              category!.capitalizeFirstLetter(),
+              style: context.textTheme.bodyMedium!.copyWith(
+                fontSize: 16.sp,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 12.h,
-          ),
-          Text(
-            title,
-            style: context.textTheme.titleSmall,
-          ),
-          SizedBox(
-            height: 40.h,
-          ),
+            SizedBox(
+              height: 12.h,
+            ),
+          ],
+          if (title != null) ...[
+            Text(
+              title.toString(),
+              style: context.textTheme.titleSmall,
+            ),
+            SizedBox(
+              height: 40.h,
+            ),
+          ],
         ],
       ),
     );

@@ -26,8 +26,8 @@ part './widgets/products_grid.dart';
 
 @RoutePage()
 final class ProductShopView extends StatelessWidget {
-  final String selectedCategory;
-  final String selectedTitle;
+  final String? selectedCategory;
+  final String? selectedTitle;
   const ProductShopView({
     super.key,
     required this.selectedCategory,
@@ -57,8 +57,8 @@ final class ProductShopView extends StatelessWidget {
 }
 
 final class ProductShopBody extends StatefulWidget {
-  final String selectedCategory;
-  final String selectedTitle;
+  final String? selectedCategory;
+  final String? selectedTitle;
   const ProductShopBody({
     super.key,
     required this.selectedCategory,

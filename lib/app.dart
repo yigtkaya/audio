@@ -28,6 +28,7 @@ final class App extends StatelessWidget {
             child: MaterialApp.router(
               title: AppConstants.appName,
               theme: LightTheme.theme,
+              locale: state.selectedLanguage.locale,
               localizationsDelegates: const [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,

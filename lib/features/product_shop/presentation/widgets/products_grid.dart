@@ -9,8 +9,8 @@ final class _ProductsGrid extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.kGreyLight1,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(AppDesignConstants.borderRadius),
-          topRight: Radius.circular(AppDesignConstants.borderRadius),
+          topLeft: Radius.circular(AppDesignConstants.borderRadiusCircular),
+          topRight: Radius.circular(AppDesignConstants.borderRadiusCircular),
         ),
       ),
       padding: EdgeInsets.symmetric(

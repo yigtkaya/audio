@@ -134,7 +134,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get emptyCart => 'Sepetinizde ürün bulunmamaktadır';
 
   @override
-  String get checkout => 'Ödeme, Toplam: ';
+  String get checkout => 'Ödemeye Geç';
+
+  @override
+  String get total => 'Toplam';
+
+  @override
+  String get featured => 'Öne Çıkanlar';
+
+  @override
+  String get seeAll => 'Hepsini Gör';
 
   @override
   String get trips => 'İlanlar';

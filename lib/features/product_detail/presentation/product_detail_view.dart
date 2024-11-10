@@ -80,7 +80,7 @@ class _ProductDetailBodyState extends State<_ProductDetailBody> with TickerProvi
             ),
           ),
           SliverToBoxAdapter(
-            child: SizedBox(height: 40.h),
+            child: SizedBox(height: 80.h),
           ),
         ],
       ),

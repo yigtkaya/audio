@@ -1,7 +1,5 @@
-import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:audio/localization/helper/languages/english.dart';
 import 'package:audio/localization/helper/languages/turkish.dart';
@@ -27,12 +25,6 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
   }
 
   void onLoadLanguage(LoadLanguage event, Emitter<LanguageState> emit) async {
-    final deviceLocale = Locale(Platform.localeName.substring(0, 2));
-
-    if (deviceLocale == const Locale('tr')) {
-      emit(state.copyWith(selectedLanguage: english));
-      return;
-    }
     emit(state.copyWith(selectedLanguage: english));
   }
 }

@@ -65,9 +65,6 @@ final class _OverviewTabView extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                 ),
               ),
-              SizedBox(
-                height: 40.h,
-              ),
             ],
           ),
         );

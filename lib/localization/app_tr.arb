@@ -41,7 +41,10 @@
   "relatedProducts": "İlgili Ürünler",
   "shoppingCart": "Alışveriş Sepeti",
   "emptyCart": "Sepetinizde ürün bulunmamaktadır",
-  "checkout": "Ödeme, Toplam: ",
+  "checkout": "Ödemeye Geç",
+  "total": "Toplam",
+  "featured": "Öne Çıkanlar",
+  "seeAll": "Hepsini Gör",
 
   "trips": "İlanlar",
   "messages": "Sohbetler",

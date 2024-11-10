@@ -29,12 +29,36 @@ final class _AudioAppBar extends StatelessWidget implements PreferredSizeWidget 
           padding: EdgeInsets.only(
             right: AppDesignConstants.horizontalPaddingMedium,
           ),
-          child: CircleAvatar(
-            backgroundColor: Colors.grey[300],
-            child: const Icon(
-              Icons.person,
-              color: AppColors.kGreyDark,
-            ),
+          child: BlocBuilder<UserBloc, UserState>(
+            builder: (context, state) {
+              if (state is UserLoading || state is UserInitial || state is UserError) {
+                return CircleAvatar(
+                  radius: 30,
+                  backgroundColor: AppColors.kGrey,
+                  child: Icon(
+                    Icons.person,
+                    color: AppColors.kWhite,
+                    size: AppDesignConstants.iconSize,
+                  ),
+                );
+              }
+              final user = (state as UserLoaded).user;
+
+              if (user.profilePhotoUrl == null) {
+                return CircleAvatar(
+                  backgroundColor: AppColors.kGrey,
+                  child: Icon(
+                    Icons.person,
+                    color: AppColors.kWhite,
+                    size: AppDesignConstants.iconSize,
+                  ),
+                );
+              }
+
+              return _CustomCircleAvatar(
+                user.profilePhotoUrl.toString(),
+              );
+            },
           ),
         ),
       ],
