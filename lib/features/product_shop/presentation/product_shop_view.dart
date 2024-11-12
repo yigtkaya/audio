@@ -44,7 +44,9 @@ final class ProductShopView extends StatelessWidget {
         BlocProvider<ProductsBloc>(
           create: (context) => getIt.call()
             ..add(
-              FetchProducts(),
+              FetchProducts(
+                context.read<FilterCubit>().state,
+              ),
             ),
         ),
       ],

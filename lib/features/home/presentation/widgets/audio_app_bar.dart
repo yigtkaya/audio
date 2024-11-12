@@ -18,6 +18,7 @@ final class _AudioAppBar extends StatelessWidget implements PreferredSizeWidget 
             width: 32.r,
             height: 32.r,
           ),
+          const SizedBox(width: 8),
           Text(
             context.l10n.audio,
             style: context.textTheme.titleSmall,
@@ -47,6 +48,7 @@ final class _AudioAppBar extends StatelessWidget implements PreferredSizeWidget 
               if (user.profilePhotoUrl == null) {
                 return CircleAvatar(
                   backgroundColor: AppColors.kGrey,
+                  radius: 14,
                   child: Icon(
                     Icons.person,
                     color: AppColors.kWhite,

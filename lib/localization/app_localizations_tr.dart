@@ -146,6 +146,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get seeAll => 'Hepsini Gör';
 
   @override
+  String get clear => 'Temizle';
+
+  @override
+  String get noProductsFound => 'Ürün bulunamadı';
+
+  @override
   String get trips => 'İlanlar';
 
   @override

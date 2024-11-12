@@ -9,6 +9,7 @@ import 'package:audio/features/home/bloc/user_bloc.dart';
 import 'package:audio/features/home/cubit/category_cubit.dart';
 import 'package:audio/features/home/domain/product/product_model.dart';
 import 'package:audio/features/product_shop/bloc/products_bloc.dart';
+import 'package:audio/features/product_shop/cubit/filter_cubit.dart';
 import 'package:audio/localization/l10.dart';
 import 'package:audio/core/widgets/text_fields/custom_search_text_form_field.dart';
 import 'package:cached_network_image/cached_network_image.dart';

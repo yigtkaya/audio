@@ -3,5 +3,6 @@ part of 'products_bloc.dart';
 abstract base class ProductsEvent extends BaseEvent {}
 
 final class FetchProducts extends ProductsEvent {
-  FetchProducts();
+  final FilterState filterState;
+  FetchProducts(this.filterState);
 }

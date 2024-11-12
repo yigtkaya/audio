@@ -5,10 +5,7 @@ final class _FilterBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FilterCubit>(
-      create: (context) => getIt.call(),
-      child: const _FilterContent(),
-    );
+    return const _FilterContent();
   }
 }
 
@@ -66,6 +63,15 @@ class _FilterContentState extends State<_FilterContent> with _FilterContentMixin
                       Text(
                         context.l10n.filter,
                         style: context.textTheme.titleSmall,
+                      ),
+                      GestureDetector(
+                        onTap: onClearFiltersPressed,
+                        child: Text(
+                          context.l10n.clear,
+                          style: context.textTheme.bodyMedium!.copyWith(
+                            color: AppColors.kPrimary,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -144,6 +150,7 @@ class _FilterContentState extends State<_FilterContent> with _FilterContentMixin
                     children: [
                       Expanded(
                         child: TextField(
+                          controller: minPriceController,
                           cursorColor: AppColors.kGrey,
                           decoration: InputDecoration(
                             hintText: context.l10n.minPrice,
@@ -180,6 +187,7 @@ class _FilterContentState extends State<_FilterContent> with _FilterContentMixin
                       SizedBox(width: 16.w),
                       Expanded(
                         child: TextField(
+                          controller: maxPriceController,
                           cursorColor: AppColors.kGrey,
                           decoration: InputDecoration(
                             hintText: context.l10n.maxPrice,

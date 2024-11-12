@@ -60,7 +60,7 @@ final class ProductCard extends StatelessWidget {
                     height: AppDesignConstants.verticalPaddingSmall,
                   ),
                   Text(
-                    product.price.toString(),
+                    '${product.price} \$',
                     style: context.textTheme.bodyMedium,
                   ),
                 ],

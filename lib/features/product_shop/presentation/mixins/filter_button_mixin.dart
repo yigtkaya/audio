@@ -2,6 +2,9 @@ part of '../product_shop_view.dart';
 
 mixin _FilterButtonMixin on State<_FilterButton> {
   void onFilterButtonPressed() {
+    final filterCubit = context.read<FilterCubit>();
+    final productsBloc = context.read<ProductsBloc>();
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -21,7 +24,15 @@ mixin _FilterButtonMixin on State<_FilterButton> {
         maxChildSize: 0.8,
         minChildSize: 0.5,
         expand: false,
-        builder: (context, scrollController) => const _FilterBottomSheet(),
+        builder: (context, scrollController) => MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: filterCubit),
+            BlocProvider.value(
+              value: productsBloc,
+            ),
+          ],
+          child: _FilterBottomSheet(),
+        ),
       ),
     );
   }

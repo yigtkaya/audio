@@ -9,6 +9,7 @@ final class _CustomCircleAvatar extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.router.push(ProfileRoute()),
       child: CircleAvatar(
+        radius: 14,
         backgroundImage: CachedNetworkImageProvider(photo),
       ),
     );

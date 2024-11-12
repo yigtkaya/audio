@@ -1,3 +1,4 @@
+import 'package:audio/features/product_shop/bloc/products_bloc.dart';
 import 'package:audio/localization/l10.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -8,14 +9,16 @@ part 'filter_state.dart';
 
 @injectable
 class FilterCubit extends Cubit<FilterState> {
-  FilterCubit() : super(const FilterState());
+  final ProductsBloc _productsBloc;
+  FilterCubit(this._productsBloc) : super(const FilterState());
 
   void selectCategory(ProductCategory category) {
     emit(state.copyWith(selectedCategory: category));
   }
 
-  void selectSortBy(SortBy sortBy) {
+  FilterState selectSortBy(SortBy sortBy) {
     emit(state.copyWith(selectedSort: sortBy));
+    return state;
   }
 
   void setMinPrice(double price) {
@@ -33,8 +36,6 @@ class FilterCubit extends Cubit<FilterState> {
   }
 
   void applyFilters() {
-    // Here you can implement the logic to actually apply the filters
-    // For example, triggering an API call or filtering local data
-    // TODO
+    _productsBloc.add(FetchProducts(state));
   }
 }

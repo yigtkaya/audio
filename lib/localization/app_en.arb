@@ -45,6 +45,9 @@
   "total": "Total",
   "featured": "Featured",
   "seeAll": "See All",
+  "clear": "Clear",
+  "noProductsFound": "No products found",
+  
 
   "trips": "Trips",
   "messages": "Messages",

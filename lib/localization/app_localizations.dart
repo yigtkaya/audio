@@ -374,6 +374,18 @@ abstract class AppLocalizations {
   /// **'See All'**
   String get seeAll;
 
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
+  /// No description provided for @noProductsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No products found'**
+  String get noProductsFound;
+
   /// No description provided for @trips.
   ///
   /// In en, this message translates to:

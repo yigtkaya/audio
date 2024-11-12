@@ -146,6 +146,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get seeAll => 'See All';
 
   @override
+  String get clear => 'Clear';
+
+  @override
+  String get noProductsFound => 'No products found';
+
+  @override
   String get trips => 'Trips';
 
   @override

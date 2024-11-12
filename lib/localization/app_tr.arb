@@ -45,6 +45,8 @@
   "total": "Toplam",
   "featured": "Öne Çıkanlar",
   "seeAll": "Hepsini Gör",
+  "clear": "Temizle",
+  "noProductsFound": "Ürün bulunamadı",
 
   "trips": "İlanlar",
   "messages": "Sohbetler",

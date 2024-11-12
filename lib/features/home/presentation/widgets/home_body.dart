@@ -19,7 +19,7 @@ class _HomeBodyState extends State<_HomeBody> with _HomeViewMixin, TickerProvide
     return BlocProvider<ProductsBloc>(
       create: (context) => getIt.call()
         ..add(
-          FetchProducts(),
+          FetchProducts(FilterState()),
         ),
       child: SliverToBoxAdapter(
         child: Container(

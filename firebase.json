@@ -1,1 +1,34 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"audioecommerce","appId":"1:537468152469:android:af1c9986a06167b79e099c","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"audioecommerce","appId":"1:537468152469:ios:2fcda72add1e43469e099c","uploadDebugSymbols":true,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"audioecommerce","configurations":{"android":"1:537468152469:android:af1c9986a06167b79e099c","ios":"1:537468152469:ios:2fcda72add1e43469e099c"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "audioecommerce",
+          "appId": "1:537468152469:android:af1c9986a06167b79e099c",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "audioecommerce",
+          "appId": "1:537468152469:ios:2fcda72add1e43469e099c",
+          "uploadDebugSymbols": true,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "audioecommerce",
+          "configurations": {
+            "android": "1:537468152469:android:af1c9986a06167b79e099c",
+            "ios": "1:537468152469:ios:2fcda72add1e43469e099c"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

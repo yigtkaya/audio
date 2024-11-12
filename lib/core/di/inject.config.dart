@@ -39,7 +39,6 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i207.CategoryCubit>(() => _i207.CategoryCubit());
-    gh.factory<_i202.FilterCubit>(() => _i202.FilterCubit());
     gh.factory<_i300.LanguageBloc>(() => _i300.LanguageBloc());
     gh.factory<_i67.CartCubit>(() => _i67.CartCubit());
     gh.lazySingleton<_i292.TranslationService>(() => _i292.TranslationService());
@@ -50,6 +49,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i55.AuthBloc>(() => _i55.AuthBloc(authRepository: gh<_i726.AuthRepository>()));
     gh.factory<_i422.ProductBloc>(() => _i422.ProductBloc(gh<_i665.ProductRepository>()));
     gh.factory<_i997.ProductsBloc>(() => _i997.ProductsBloc(gh<_i665.ProductRepository>()));
+    gh.factory<_i202.FilterCubit>(() => _i202.FilterCubit(gh<_i997.ProductsBloc>()));
     return this;
   }
 }
