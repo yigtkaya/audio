@@ -37,8 +37,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forgotPasswordTitle => 'Forgot Password';
 
   @override
-  String get forgotPasswordDescription =>
-      'Enter your email address to reset your password';
+  String get forgotPasswordDescription => 'Enter your email address to reset your password';
 
   @override
   String get sendLink => 'Send Link';
@@ -218,15 +217,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get inviteSentSuccessfully => 'Invite sent successfully';
 
   @override
-  String get inviteSentError =>
-      'An error occurred while sending the invitation';
+  String get inviteSentError => 'An error occurred while sending the invitation';
 
   @override
   String get pleaseChooseTrip => 'Please choose a trip';
 
   @override
-  String get chooseInviterTrip =>
-      'Choose the trip you want to invite the passenger';
+  String get chooseInviterTrip => 'Choose the trip you want to invite the passenger';
 
   @override
   String get chooseInviteeTrip => 'Choose the trip to be invited';
@@ -299,8 +296,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseEnterEmail => 'Please enter your email address';
 
   @override
-  String get aPasswordShouldBeAtLeast8Characters =>
-      'Password should be at least 8 characters';
+  String get aPasswordShouldBeAtLeast8Characters => 'Password should be at least 8 characters';
 
   @override
   String get notAvalidNumberPlate => 'Not a valid number plate';
@@ -330,8 +326,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chooseImage => 'Choose Image';
 
   @override
-  String get pleaseChooseImageFromGalleryOrTakeAPhoto =>
-      'Please choose image from gallery or take a photo';
+  String get pleaseChooseImageFromGalleryOrTakeAPhoto => 'Please choose image from gallery or take a photo';
 
   @override
   String get gallery => 'Gallery';
@@ -425,12 +420,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get uploadStudentCertificate => 'Upload Student Certificate';
 
   @override
-  String get uploadStudentCertificateDesc =>
-      'Please upload your student certificate to verify your student status';
+  String get uploadStudentCertificateDesc => 'Please upload your student certificate to verify your student status';
 
   @override
-  String get incaseVerification =>
-      'In case of verification your account will be approved';
+  String get incaseVerification => 'In case of verification your account will be approved';
 
   @override
   String get tapToUpload => 'Tap to upload';
@@ -443,12 +436,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'You are successfully logged in and created your profile but your account is not approved yet. Please wait for the admin to approve your account.';
 
   @override
-  String get pleaseUploadStudentCertificate =>
-      'Please upload your student certificate';
+  String get pleaseUploadStudentCertificate => 'Please upload your student certificate';
 
   @override
-  String get yourProfileCreatedSuccesfully =>
-      'Your profile created successfully';
+  String get yourProfileCreatedSuccesfully => 'Your profile created successfully';
 
   @override
   String get startChatting => 'Start a chat by texting people from trips';
@@ -460,15 +451,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passengerLimit => 'Passenger Limit';
 
   @override
-  String get passengerLimitDescription =>
-      '*Please enter the maximum number of people you would like to travel with.';
+  String get passengerLimitDescription => '*Please enter the maximum number of people you would like to travel with.';
 
   @override
   String get pleaseEnterPassengerLimit => 'Please enter the passenger limit';
 
   @override
-  String get pleaseEnterFromTo =>
-      'Please enter the departure and arrival locations';
+  String get pleaseEnterFromTo => 'Please enter the departure and arrival locations';
 
   @override
   String get successfullySharedTrip => 'Trip shared successfully';

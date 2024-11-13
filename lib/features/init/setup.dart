@@ -1,4 +1,4 @@
-part of '../main.dart';
+part of '../../../main.dart';
 
 /// Bootstrap the app with the given builder function
 Future<void> setup(FutureOr<Widget> Function() builder) async {

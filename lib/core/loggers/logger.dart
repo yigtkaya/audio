@@ -1,5 +1,6 @@
 import 'package:logger/logger.dart';
 
+/// Custom filter for logging.
 class MyFilter extends LogFilter {
   @override
   bool shouldLog(LogEvent event) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:audio/core/cubit/base_cubit.dart';
 
+/// BaseState is the base widget for all the states.
 abstract base class BaseWidget<C extends BaseCubit<S>, S extends BaseState> extends StatefulWidget {
   const BaseWidget({super.key});
 

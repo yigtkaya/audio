@@ -4,6 +4,7 @@ import 'package:audio/core/cubit/base_cubit.dart';
 
 typedef Create<C extends StateStreamableSource<Object?>> = C Function();
 
+/// BaseState is the base widget for all the states.
 abstract base class BaseView<C extends BaseCubit<S>, S extends BaseState> extends StatefulWidget {
   const BaseView({
     this.cubit,

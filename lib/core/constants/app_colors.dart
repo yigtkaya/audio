@@ -81,25 +81,4 @@ final class AppColors {
   static const kInfo300 = Color(0xFF65E5FF);
   static const kInfo200 = Color(0xFF90ECFF);
   static const kInfo100 = Color(0xFFBBF3FF);
-
-  //* CUSTOM COLORS
-  static const accepted = Color(0xFF16A34A); // rgb(22, 163, 74)
-  static const waiting = Color(0xFFEAB308); // rgb(234, 179, 8)
-  static const rejected = Color(0xFFDC2626); // rgb(220, 38, 38)
-  static const notConsider = Color(0xFF2563EB); // rgb(37, 99, 235)
-  static const satisIptalEdildi = Color(0xFF7C3AED); // rgb(124, 58, 237)
-  static const musteriTeklifiIptalEtti = Color(0xFF525252); // rgb(82, 82, 82)
-  static const hemenAlTeklifIleUrunSatildi = Color(0xFFEA580C); // rgb(234, 88, 12)
-  static const hemenAl = Color(0xFFEA580C); // rgb(234, 88, 12)
-  static const disabledColor = Color(0xFF94A3B8); // rgb(148, 163, 184)
-
-  //*SUCCESS COLORS
-  static const kSuccessBorder = Color(0xFF4ADE80); // border: rgb(74 222 128)
-  static const kSuccessBg = Color(0xFFF0FDF4); // bg: rgb(240 253 244)
-  static const kSuccessText = Color(0xFF15803D); // text-color: rgb(21 128 61)
-
-  //!DANGER COLORS
-  static const kDangerBorder = Color(0xFFF87171); // border: rgb(248 113 113)
-  static const kDangerBg = Color(0xFFFEE2E2); // bg: rgb(254 242 242)
-  static const kDangerText = Color(0xFFB91C1C); // text-color: rgb(185 28 28)
 }

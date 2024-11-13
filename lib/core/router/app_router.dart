@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:audio/core/router/app_router.gr.dart';
 
+/// AppRouter is the main router of the app.
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 class AppRouter extends RootStackRouter {
   @override

@@ -1,5 +1,6 @@
 import 'package:audio/core/loggers/logger.dart';
 
+/// Logs for debugging purposes.
 void networkLog({required String repository, required dynamic message, dynamic error, StackTrace? stackTrace}) {
   loggerNoMethod.e("REPOSITORY: $repository");
   logger.e(message);
