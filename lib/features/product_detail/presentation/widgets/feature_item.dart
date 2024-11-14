@@ -20,7 +20,7 @@ final class _FeatureItem extends StatelessWidget {
             width: 100.w,
             height: 100.h,
             decoration: BoxDecoration(
-              color: AppColors.kGreyLight2,
+              color: AppColors.kWhite,
               borderRadius: BorderRadius.circular(AppDesignConstants.borderRadius),
             ),
             child: Center(

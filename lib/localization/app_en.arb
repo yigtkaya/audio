@@ -46,6 +46,11 @@
   "featured": "Featured",
   "seeAll": "See All",
   "clear": "Clear",
-  "noProductsFound": "No products found"
-  
+  "noProductsFound": "No products found",
+  "somethingWentWrong": "Something went wrong",
+  "send": "Send",
+  "pleaseEnterEmail": "Please enter an email",
+  "pleaseEnterValidEmail": "Please enter a valid email",
+  "pleaseEnterPassword": "Please enter a password",
+  "aPasswordShouldBeAtLeast8Characters": "A password should be at least 8 characters"
 }

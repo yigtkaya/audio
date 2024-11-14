@@ -35,7 +35,7 @@ final class _CartItem extends StatelessWidget {
             width: 120.w,
             height: 120.h,
             decoration: BoxDecoration(
-              color: AppColors.kGreyLight1,
+              color: AppColors.kWhite,
               borderRadius: BorderRadius.circular(
                 AppDesignConstants.borderRadius,
               ),
@@ -46,7 +46,7 @@ final class _CartItem extends StatelessWidget {
               ),
               child: CachedNetworkImage(
                 imageUrl: item.photo,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitHeight,
                 placeholder: (context, url) => const Center(
                   child: CircularProgressIndicator(),
                 ),
