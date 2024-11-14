@@ -1,5 +1,9 @@
 # E-Commerce App with Flutter
 
+Project Screens
+
+<img src="documentation/anasayfa.jpg" width = "100">
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
