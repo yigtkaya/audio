@@ -26,6 +26,7 @@ final class App extends StatelessWidget {
           splitScreenMode: false,
           child: KeyboardDismissOnTap(
             child: MaterialApp.router(
+              debugShowCheckedModeBanner: false,
               title: AppConstants.appName,
               theme: LightTheme.theme,
               locale: state.selectedLanguage.locale,
